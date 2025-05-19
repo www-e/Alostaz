@@ -1,16 +1,14 @@
 <div align="center">
-  <img src="https://cdn-icons-png.flaticon.com/512/1903/1903162.png" alt="Math Logo" width="120" height="120"/>
+  <img src="https://cdn-icons-png.flaticon.com/512/1903/1903162.png" alt="Math Logo" width="100"/>
   
-  <h1 dir="rtl" style="font-family: 'Arial', sans-serif; color: #1a365d; margin: 10px 0;">
-    <span style="font-family: 'Arial', 'Segoe UI', Tahoma, sans-serif; font-weight: 700;">مركز أ/ أشرف حسن للرياضيات</span>
+  <h1 dir="rtl">
+    <strong>مركز أ/ أشرف حسن للرياضيات</strong>
   </h1>
-  <h2 style="color: #2d3748; margin: 10px 0 20px;">Alostaz Math Center - Next.js Application</h2>
+  <h2>Alostaz Math Center - Next.js Application</h2>
   
-  <a href="https://www-e.github.io/Elostaz/" target="_blank" style="display: inline-block; background: linear-gradient(45deg, #1a365d, #2c5282); color: white; padding: 12px 28px; border-radius: 50px; text-decoration: none; font-size: 1.2em; font-weight: bold; margin: 15px 0 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: all 0.3s ease; border: 2px solid #1a365d;">
-    🌐 Visit Our Website →
-  </a>
+  [![Website](https://img.shields.io/badge/Visit_Our_Website-1a365d?style=for-the-badge&logo=vercel&logoColor=white&labelColor=1a365d)](https://www-e.github.io/Elostaz/)
   
-  <div style="height: 2px; width: 100px; background: linear-gradient(90deg, transparent, #1a365d, transparent); margin: 10px auto 20px;"></div>
+  ---
 </div>
 
 <p align="center">
@@ -298,61 +296,22 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Contact Us
 
 <div align="center">
-  <div dir="rtl" style="background: #f8fafc; border-radius: 15px; padding: 25px; max-width: 600px; margin: 0 auto; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
-    <h2 style="color: #1a365d; margin-bottom: 20px; font-size: 1.8em;">تواصل معنا</h2>
-    <p style="color: #4a5568; margin-bottom: 25px; font-size: 1.1em;">
-      للاستفسارات أو الدعم الفني، يسرنا تواصلكم معنا عبر أي من القنوات التالية:
-    </p>
-    
-    <table style="margin: 0 auto; border-collapse: separate; border-spacing: 15px 10px;">
-      <tr>
-        <td style="text-align: center;">
-          <a href="https://www.facebook.com/omar.ashraf.579123" target="_blank" style="display: inline-block; width: 50px; height: 50px; background: #1877f2; border-radius: 50%; text-align: center; line-height: 50px; transition: transform 0.3s ease;">
-            <img src="https://img.icons8.com/color/30/ffffff/facebook.png" width="25" alt="Facebook" style="vertical-align: middle;">
-          </a>
-        </td>
-        <td style="padding-left: 15px;">
-          <a href="https://www.facebook.com/omar.ashraf.579123" target="_blank" style="color: #2d3748; text-decoration: none; font-weight: 600; font-size: 1.1em;">Facebook</a>
-        </td>
-      </tr>
-      <tr>
-        <td style="text-align: center;">
-          <a href="https://wa.me/201154688628?text=Hello%20I%20came%20from%20Your%20GitHub%21" target="_blank" style="display: inline-block; width: 50px; height: 50px; background: #25d366; border-radius: 50%; text-align: center; line-height: 50px; transition: transform 0.3s ease;">
-            <img src="https://img.icons8.com/color/30/ffffff/whatsapp--v1.png" width="25" alt="WhatsApp" style="vertical-align: middle;">
-          </a>
-        </td>
-        <td style="padding-left: 15px;">
-          <a href="https://wa.me/201154688628?text=Hello%20I%20came%20from%20Your%20GitHub%21" target="_blank" style="color: #2d3748; text-decoration: none; font-weight: 600; font-size: 1.1em;">WhatsApp</a>
-        </td>
-      </tr>
-      <tr>
-        <td style="text-align: center;">
-          <a href="https://www.instagram.com/omarashraf871/" target="_blank" style="display: inline-block; width: 50px; height: 50px; background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); border-radius: 50%; text-align: center; line-height: 50px; transition: transform 0.3s ease;">
-            <img src="https://img.icons8.com/color/30/ffffff/instagram-new--v1.png" width="25" alt="Instagram" style="vertical-align: middle;">
-          </a>
-        </td>
-        <td style="padding-left: 15px;">
-          <a href="https://www.instagram.com/omarashraf871/" target="_blank" style="color: #2d3748; text-decoration: none; font-weight: 600; font-size: 1.1em;">Instagram</a>
-        </td>
-      </tr>
-      <tr>
-        <td style="text-align: center;">
-          <div style="display: inline-block; width: 50px; height: 50px; background: #e53e3e; border-radius: 50%; text-align: center; line-height: 50px;">
-            <span style="color: white; font-size: 1.5em;">✉️</span>
-          </div>
-        </td>
-        <td style="padding-left: 15px; vertical-align: middle;">
-          <span style="color: #2d3748; font-weight: 600; font-size: 1.1em;">omarasj445@gmail.com</span>
-        </td>
-      </tr>
-    </table>
-    
-    <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #e2e8f0;">
-      <p style="color: #718096; font-size: 0.9em; margin: 0;">
-        © 2025 مركز أ/ أشرف حسن للرياضيات. جميع الحقوق محفوظة.
-      </p>
-    </div>
-  </div>
+
+### تواصل معنا
+
+للاستفسارات أو الدعم الفني، يسرنا تواصلكم معنا عبر أي من القنوات التالية:
+
+| Platform | Link |
+|----------|------|
+| **Facebook** | [Visit Facebook](https://www.facebook.com/omar.ashraf.579123) |
+| **WhatsApp** | [Message on WhatsApp](https://wa.me/201154688628?text=Hello%20I%20came%20from%20Your%20GitHub%21) |
+| **Instagram** | [Follow on Instagram](https://www.instagram.com/omarashraf871/) |
+| **Email** | [omarasj445@gmail.com](mailto:omarasj445@gmail.com) |
+
+---
+
+© 2025 مركز أ/ أشرف حسن للرياضيات. جميع الحقوق محفوظة.
+
 </div>
      ```
 
