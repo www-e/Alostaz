@@ -301,12 +301,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 للاستفسارات أو الدعم الفني، يسرنا تواصلكم معنا عبر أي من القنوات التالية:
 
-| Platform | Link |
-|----------|------|
-| **Facebook** | [Visit Facebook](https://www.facebook.com/omar.ashraf.579123) |
-| **WhatsApp** | [Message on WhatsApp](https://wa.me/201154688628?text=Hello%20I%20came%20from%20Your%20GitHub%21) |
-| **Instagram** | [Follow on Instagram](https://www.instagram.com/omarashraf871/) |
-| **Email** | [omarasj445@gmail.com](mailto:omarasj445@gmail.com) |
+[![Facebook](https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white)](https://www.facebook.com/omar.ashraf.579123)
+[![WhatsApp](https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/201154688628?text=Hello%20I%20came%20from%20Your%20GitHub%21)
+[![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/omarashraf871/)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:omarasj445@gmail.com)
 
 ---
 
@@ -315,14 +313,19 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 </div>
      ```
 
-## Deployment
+## 🚀 Deployment
 
-This application can be deployed to any platform that supports Next.js applications, such as:
+This application can be deployed to any platform that supports Next.js applications. Click on the badges below to deploy:
 
-- Vercel
-- Netlify
-- AWS Amplify
-- Digital Ocean App Platform
+[![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com/new)
+[![Netlify](https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)](https://app.netlify.com/start)
+[![AWS](https://img.shields.io/badge/AWS_Amplify-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white)](https://aws.amazon.com/amplify/)
+[![DigitalOcean](https://img.shields.io/badge/Digital_Ocean-0080FF?style=for-the-badge&logo=digitalocean&logoColor=white)](https://www.digitalocean.com/products/app-platform/)
+
+### One-Click Deploy
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fwww-e%2FAlostaz)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/www-e/Alostaz)
 
 ## Credits
 
