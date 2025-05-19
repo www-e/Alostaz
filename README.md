@@ -1,15 +1,11 @@
-<p align="center">
+<div align="center">
   <img src="https://img.icons8.com/external-flaticons-flat-flat-icons/96/000000/external-math-literary-genres-flaticons-flat-flat-icons.png" alt="Math Logo" width="96" height="96"/>
-</p>
-
-<div align="center" style="margin: 2rem 0;">
-  <a href="https://www-e.github.io/Elostaz/" target="_blank" style="display: inline-block; background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%); color: white; padding: 1rem 2rem; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: all 0.3s ease;">
-    🚀 Visit Our Website
-  </a>
+  
+  <h1 dir="rtl">مركز أ/ أشرف حسن للرياضيات</h1>
+  <h3>Alostaz Math Center - Next.js Application</h3>
+  
+  [![Website](https://img.shields.io/badge/Visit_Our_Website-1a365d?style=for-the-badge&logo=vercel&logoColor=white)](https://www-e.github.io/Elostaz/)
 </div>
-
-<h1 align="center" dir="rtl" style="font-family: 'Tajawal', 'Cairo', sans-serif; color: #1a365d; font-weight: 700; margin-bottom: 0.5rem; text-shadow: 1px 1px 3px rgba(0,0,0,0.1);">مركز أ/ أشرف حسن للرياضيات</h1>
-<h3 align="center" style="color: #2d3748; font-weight: 500; margin-top: 0; font-size: 1.5rem;">Alostaz Math Center - Next.js Application</h3>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Next.js-14-black?logo=next.js&logoColor=white" alt="Next.js">
@@ -24,12 +20,24 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/License-MIT-yellow?logo=github" alt="License">
-  <img src="https://img.shields.io/github/last-commit/www-e/Alostaz" alt="Last Commit">
-  <img src="https://img.shields.io/github/issues/www-e/Alostaz" alt="Issues">
-  <img src="https://img.shields.io/github/forks/www-e/Alostaz" alt="Forks">
-  <img src="https://img.shields.io/github/stars/www-e/Alostaz" alt="Stars">
-  <img src="https://img.shields.io/badge/PRs-welcome-brightgreen?logo=git" alt="PRs Welcome">
+  <a href="https://github.com/www-e/Alostaz/blob/main/LICENSE">
+    <img src="https://img.shields.io/badge/License-MIT-yellow?logo=github" alt="License">
+  </a>
+  <a href="https://github.com/www-e/Alostaz/commits/main">
+    <img src="https://img.shields.io/github/last-commit/www-e/Alostaz" alt="Last Commit">
+  </a>
+  <a href="https://github.com/www-e/Alostaz/issues">
+    <img src="https://img.shields.io/github/issues-raw/www-e/Alostaz" alt="Open Issues">
+  </a>
+  <a href="https://github.com/www-e/Alostaz/network/members">
+    <img src="https://img.shields.io/github/forks/www-e/Alostaz" alt="Forks">
+  </a>
+  <a href="https://github.com/www-e/Alostaz/stargazers">
+    <img src="https://img.shields.io/github/stars/www-e/Alostaz" alt="Stars">
+  </a>
+  <a href="https://github.com/www-e/Alostaz/pulls">
+    <img src="https://img.shields.io/badge/PRs-welcome-brightgreen?logo=git" alt="PRs Welcome">
+  </a>
 </p>
 
 ## ✨ Key Features
@@ -47,11 +55,8 @@
 ### 🖼️ Application Preview
 
 #### Home Page
-<p align="center">
-  <a href="https://www-e.github.io/Elostaz/" target="_blank">
-    <img src="./public/home-dark-alostaz.png" alt="Alostaz Math Center Home Page" style="border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); max-width: 100%; height: auto; border: 1px solid #e2e8f0;"/>
-  </a>
-</p>
+[![Alostaz Home Page](./public/home-dark-alostaz.png)](https://www-e.github.io/Elostaz/)
+
 *Interactive home page with course highlights - [View Live](https://www-e.github.io/Elostaz/)*
 
 #### Mobile View
@@ -71,7 +76,7 @@ graph TD
 *Mobile navigation flow*
 
 <details>
-<summary><h2 style="display: inline;">🚀 Quick Start</h2></summary>
+<summary><h2>🚀 Quick Start</h2></summary>
 
 ### Prerequisites
 
@@ -284,43 +289,32 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [Supabase Documentation](https://supabase.com/docs)
 - [React Icons](https://react-icons.github.io/react-icons/)
 
-<div align="center" dir="rtl" style="font-family: 'Tajawal', 'Cairo', sans-serif; margin: 3rem 0; padding: 2rem; background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05);">
-  <h3 style="color: #1a365d; margin-bottom: 1.5rem; font-size: 1.75rem; font-weight: 700;">تواصل معنا</h3>
-  <p style="color: #4a5568; margin-bottom: 1.5rem; font-size: 1.1rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-    للاستفسارات أو الدعم الفني، يسرنا تواصلكم معنا عبر أي من القنوات التالية:
-  </p>
+## 📞 Contact Us
+
+<div dir="rtl">
+  <h3>تواصل معنا</h3>
+  <p>للاستفسارات أو الدعم الفني، يسرنا تواصلكم معنا عبر أي من القنوات التالية:</p>
   
-  <div style="display: flex; flex-direction: column; gap: 1rem; margin: 2rem 0;">
-    <a href="https://www.facebook.com/omar.ashraf.579123" target="_blank" style="display: flex; align-items: center; justify-content: center; background: #1877f2; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; max-width: 250px; margin: 0 auto 1rem;">
-      <img src="https://img.icons8.com/color/24/ffffff/facebook.png" alt="Facebook" width="24" height="24" style="margin-left: 8px;">
-      فيسبوك
-    </a>
-    
-    <a href="https://wa.me/201154688628" target="_blank" style="display: flex; align-items: center; justify-content: center; background: #25d366; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; max-width: 250px; margin: 0 auto 1rem;">
-      <img src="https://img.icons8.com/color/24/ffffff/whatsapp--v1.png" alt="WhatsApp" width="24" height="24" style="margin-left: 8px;">
-      واتساب: +201154688628
-    </a>
-    
-    <a href="https://www.instagram.com/omarashraf871/" target="_blank" style="display: flex; align-items: center; justify-content: center; background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; max-width: 250px; margin: 0 auto;">
-      <img src="https://img.icons8.com/color/24/ffffff/instagram-new--v1.png" alt="Instagram" width="24" height="24" style="margin-left: 8px;">
-      انستجرام
-    </a>
-  </div>
+  <table>
+    <tr>
+      <td><a href="https://www.facebook.com/omar.ashraf.579123" target="_blank"><img src="https://img.icons8.com/color/48/000000/facebook.png" width="30" alt="Facebook"></a></td>
+      <td><a href="https://www.facebook.com/omar.ashraf.579123" target="_blank">Facebook</a></td>
+    </tr>
+    <tr>
+      <td><a href="https://wa.me/201154688628?text=Hello%20I%20came%20from%20Your%20GitHub%21" target="_blank"><img src="https://img.icons8.com/color/48/25D366/whatsapp--v1.png" width="30" alt="WhatsApp"></a></td>
+      <td><a href="https://wa.me/201154688628?text=Hello%20I%20came%20from%20Your%20GitHub%21" target="_blank">WhatsApp</a></td>
+    </tr>
+    <tr>
+      <td><a href="https://www.instagram.com/omarashraf871/" target="_blank"><img src="https://img.icons8.com/color/48/000000/instagram-new--v1.png" width="30" alt="Instagram"></a></td>
+      <td><a href="https://www.instagram.com/omarashraf871/" target="_blank">Instagram</a></td>
+    </tr>
+    <tr>
+      <td>📧</td>
+      <td>Email: omarasj445@gmail.com</td>
+    </tr>
+  </table>
   
-  <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #e2e8f0;">
-    <p style="color: #4a5568; margin: 0.5rem 0;">
-      <img src="https://img.icons8.com/color/20/000000/email.png" alt="Email" style="vertical-align: middle; margin-left: 5px;">
-      البريد الإلكتروني: omarasj445@gmail.com
-    </p>
-    <a href="https://wa.me/201154688628?text=Hello%20I%20came%20from%20Your%20GitHub%21" target="_blank" style="text-decoration: none; color: #4a5568; display: block; margin: 0.5rem 0;">
-      <img src="https://img.icons8.com/color/20/25D366/whatsapp--v1.png" alt="WhatsApp" style="vertical-align: middle; margin-left: 5px;">
-      WhatsApp: +201154688628
-    </a>
-  </div>
-  
-  <p style="margin-top: 2rem; color: #718096; font-size: 0.9rem;">
-    © 2025 مركز أ/ أشرف حسن للرياضيات. جميع الحقوق محفوظة.
-  </p>
+  <p>© 2025 مركز أ/ أشرف حسن للرياضيات. جميع الحقوق محفوظة.</p>
 </div>
      ```
 
