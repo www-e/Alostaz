@@ -1,9 +1,15 @@
 <p align="center">
-  <img src="https://img.icons8.com/color/96/000000/math.png" alt="Math Logo" width="96" height="96"/>
+  <img src="https://img.icons8.com/external-flaticons-flat-flat-icons/96/000000/external-math-literary-genres-flaticons-flat-flat-icons.png" alt="Math Logo" width="96" height="96"/>
 </p>
 
-<h1 align="center" dir="rtl" style="font-family: 'Tajawal', sans-serif; color: #1a365d;">مركز أ/ أشرف حسن للرياضيات</h1>
-<h3 align="center" style="color: #2d3748;">Alostaz Math Center - Next.js Application</h3>
+<div align="center" style="margin: 2rem 0;">
+  <a href="https://www-e.github.io/Elostaz/" target="_blank" style="display: inline-block; background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%); color: white; padding: 1rem 2rem; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+    🚀 Visit Our Website
+  </a>
+</div>
+
+<h1 align="center" dir="rtl" style="font-family: 'Tajawal', 'Cairo', sans-serif; color: #1a365d; font-weight: 700; margin-bottom: 0.5rem; text-shadow: 1px 1px 3px rgba(0,0,0,0.1);">مركز أ/ أشرف حسن للرياضيات</h1>
+<h3 align="center" style="color: #2d3748; font-weight: 500; margin-top: 0; font-size: 1.5rem;">Alostaz Math Center - Next.js Application</h3>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Next.js-14-black?logo=next.js&logoColor=white" alt="Next.js">
@@ -41,8 +47,12 @@
 ### 🖼️ Application Preview
 
 #### Home Page
-![Home Page Preview](https://via.placeholder.com/800x400/1a365d/ffffff?text=Alostaz+Math+Center+Home+Page)
-*Interactive home page with course highlights*
+<p align="center">
+  <a href="https://www-e.github.io/Elostaz/" target="_blank">
+    <img src="./public/home-dark-alostaz.png" alt="Alostaz Math Center Home Page" style="border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); max-width: 100%; height: auto; border: 1px solid #e2e8f0;"/>
+  </a>
+</p>
+*Interactive home page with course highlights - [View Live](https://www-e.github.io/Elostaz/)*
 
 #### Mobile View
 ```mermaid
@@ -60,7 +70,8 @@ graph TD
 ```
 *Mobile navigation flow*
 
-## 🚀 Quick Start
+<details>
+<summary><h2 style="display: inline;">🚀 Quick Start</h2></summary>
 
 ### Prerequisites
 
@@ -102,6 +113,7 @@ graph TD
    npm run build
    npm start
    ```
+</details>
 
 ## 🏗 Project Structure
 
@@ -272,26 +284,42 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [Supabase Documentation](https://supabase.com/docs)
 - [React Icons](https://react-icons.github.io/react-icons/)
 
-<div align="center" dir="rtl" style="font-family: 'Tajawal', sans-serif; margin-top: 2rem; padding: 1.5rem; background: #f8fafc; border-radius: 0.5rem;">
-  <h3 style="color: #2d3748; margin-bottom: 1rem;">تواصل معنا</h3>
-  <p style="color: #4a5568; margin-bottom: 1rem;">للاستفسارات أو الدعم الفني، يرجى التواصل عبر:</p>
-  <p style="color: #2b6cb0; font-weight: 500;">البريد الإلكتروني: info@alostaz.com</p>
-  <p style="color: #2b6cb0; font-weight: 500;">الهاتف: +1234567890</p>
+<div align="center" dir="rtl" style="font-family: 'Tajawal', 'Cairo', sans-serif; margin: 3rem 0; padding: 2rem; background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05);">
+  <h3 style="color: #1a365d; margin-bottom: 1.5rem; font-size: 1.75rem; font-weight: 700;">تواصل معنا</h3>
+  <p style="color: #4a5568; margin-bottom: 1.5rem; font-size: 1.1rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+    للاستفسارات أو الدعم الفني، يسرنا تواصلكم معنا عبر أي من القنوات التالية:
+  </p>
   
-  <div style="margin-top: 1.5rem;">
-    <a href="#" style="margin: 0 0.5rem;">
-      <img src="https://img.icons8.com/color/32/000000/facebook.png" alt="Facebook" width="32" height="32">
+  <div style="display: flex; flex-direction: column; gap: 1rem; margin: 2rem 0;">
+    <a href="https://www.facebook.com/omar.ashraf.579123" target="_blank" style="display: flex; align-items: center; justify-content: center; background: #1877f2; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; max-width: 250px; margin: 0 auto 1rem;">
+      <img src="https://img.icons8.com/color/24/ffffff/facebook.png" alt="Facebook" width="24" height="24" style="margin-left: 8px;">
+      فيسبوك
     </a>
-    <a href="#" style="margin: 0 0.5rem;">
-      <img src="https://img.icons8.com/color/32/000000/twitter.png" alt="Twitter" width="32" height="32">
+    
+    <a href="https://wa.me/201154688628" target="_blank" style="display: flex; align-items: center; justify-content: center; background: #25d366; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; max-width: 250px; margin: 0 auto 1rem;">
+      <img src="https://img.icons8.com/color/24/ffffff/whatsapp--v1.png" alt="WhatsApp" width="24" height="24" style="margin-left: 8px;">
+      واتساب: +201154688628
     </a>
-    <a href="#" style="margin: 0 0.5rem;">
-      <img src="https://img.icons8.com/color/32/000000/instagram.png" alt="Instagram" width="32" height="32">
+    
+    <a href="https://www.instagram.com/omarashraf871/" target="_blank" style="display: flex; align-items: center; justify-content: center; background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; max-width: 250px; margin: 0 auto;">
+      <img src="https://img.icons8.com/color/24/ffffff/instagram-new--v1.png" alt="Instagram" width="24" height="24" style="margin-left: 8px;">
+      انستجرام
     </a>
   </div>
   
-  <p style="margin-top: 1.5rem; color: #718096; font-size: 0.875rem;">
-    © 2025 Alostaz Math Center. جميع الحقوق محفوظة.
+  <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #e2e8f0;">
+    <p style="color: #4a5568; margin: 0.5rem 0;">
+      <img src="https://img.icons8.com/color/20/000000/email.png" alt="Email" style="vertical-align: middle; margin-left: 5px;">
+      البريد الإلكتروني: omarasj445@gmail.com
+    </p>
+    <a href="https://wa.me/201154688628?text=Hello%20I%20came%20from%20Your%20GitHub%21" target="_blank" style="text-decoration: none; color: #4a5568; display: block; margin: 0.5rem 0;">
+      <img src="https://img.icons8.com/color/20/25D366/whatsapp--v1.png" alt="WhatsApp" style="vertical-align: middle; margin-left: 5px;">
+      WhatsApp: +201154688628
+    </a>
+  </div>
+  
+  <p style="margin-top: 2rem; color: #718096; font-size: 0.9rem;">
+    © 2025 مركز أ/ أشرف حسن للرياضيات. جميع الحقوق محفوظة.
   </p>
 </div>
      ```
