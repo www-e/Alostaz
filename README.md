@@ -1,49 +1,64 @@
-<div align="center">
-  <h1>مركز أ/ أشرف حسن للرياضيات</h1>
-  <h3>Alostaz Math Center - Next.js Application</h3>
-  
-  [![Next.js](https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
-  [![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react)](https://reactjs.org/)
-  [![TypeScript](https://img.shields.io/badge/TypeScript-4.9-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
-  [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.3.0-06B6D4?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
-  [![Supabase](https://img.shields.io/badge/Supabase-181818?style=for-the-badge&logo=supabase)](https://supabase.com/)
+<p align="center">
+  <img src="https://img.icons8.com/color/96/000000/math.png" alt="Math Logo" width="96" height="96"/>
+</p>
 
-  <p align="center">
-    A modern, responsive web application for a mathematics tutoring center featuring course information, student registration, and class scheduling.
-  </p>
+<h1 align="center" dir="rtl" style="font-family: 'Tajawal', sans-serif; color: #1a365d;">مركز أ/ أشرف حسن للرياضيات</h1>
+<h3 align="center" style="color: #2d3748;">Alostaz Math Center - Next.js Application</h3>
 
-  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
-  [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge)](http://makeapullrequest.com)
-</div>
+<p align="center">
+  <img src="https://img.shields.io/badge/Next.js-14-black?logo=next.js&logoColor=white" alt="Next.js">
+  <img src="https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white" alt="React">
+  <img src="https://img.shields.io/badge/TypeScript-4.9-3178C6?logo=typescript&logoColor=white" alt="TypeScript">
+  <img src="https://img.shields.io/badge/Tailwind_CSS-3.3-06B6D4?logo=tailwind-css&logoColor=white" alt="Tailwind CSS">
+  <img src="https://img.shields.io/badge/Supabase-181818?logo=supabase&logoColor=white" alt="Supabase">
+</p>
 
-## 🌟 Features
+<p align="center" style="max-width: 800px; margin: 0 auto; color: #4a5568; line-height: 1.6;">
+  A modern, responsive web application for a mathematics tutoring center featuring course information, student registration, and class scheduling. Built with the latest web technologies to provide the best learning experience.
+</p>
 
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; margin: 2rem 0;">
-  <div style="border: 1px solid #e2e8f0; border-radius: 0.5rem; padding: 1.5rem; background: #f8fafc;">
-    <h4>📱 Responsive Design</h4>
-    <p>Optimized for all devices from mobile to desktop</p>
-  </div>
-  <div style="border: 1px solid #e2e8f0; border-radius: 0.5rem; padding: 1.5rem; background: #f8fafc;">
-    <h4>🌓 Dark/Light Mode</h4>
-    <p>Toggle between themes with persistent preferences</p>
-  </div>
-  <div style="border: 1px solid #e2e8f0; border-radius: 0.5rem; padding: 1.5rem; background: #f8fafc;">
-    <h4>↔️ RTL Support</h4>
-    <p>Full right-to-left text direction for Arabic content</p>
-  </div>
-  <div style="border: 1px solid #e2e8f0; border-radius: 0.5rem; padding: 1.5rem; background: #f8fafc;">
-    <h4>📚 Course Management</h4>
-    <p>Detailed pages for each grade level and subject</p>
-  </div>
-  <div style="border: 1px solid #e2e8f0; border-radius: 0.5rem; padding: 1.5rem; background: #f8fafc;">
-    <h4>📝 Registration System</h4>
-    <p>Secure student registration with Supabase backend</p>
-  </div>
-  <div style="border: 1px solid #e2e8f0; border-radius: 0.5rem; padding: 1.5rem; background: #f8fafc;">
-    <h4>📅 Schedule Management</h4>
-    <p>View and manage class schedules</p>
-  </div>
-</div>
+<p align="center">
+  <img src="https://img.shields.io/badge/License-MIT-yellow?logo=github" alt="License">
+  <img src="https://img.shields.io/github/last-commit/www-e/Alostaz" alt="Last Commit">
+  <img src="https://img.shields.io/github/issues/www-e/Alostaz" alt="Issues">
+  <img src="https://img.shields.io/github/forks/www-e/Alostaz" alt="Forks">
+  <img src="https://img.shields.io/github/stars/www-e/Alostaz" alt="Stars">
+  <img src="https://img.shields.io/badge/PRs-welcome-brightgreen?logo=git" alt="PRs Welcome">
+</p>
+
+## ✨ Key Features
+
+### 🎯 Core Functionality
+| Feature | Description |
+|---------|-------------|
+| **Responsive Design** | Optimized for all devices from mobile to desktop |
+| **Dark/Light Mode** | Toggle between themes with persistent preferences |
+| **RTL Support** | Full right-to-left text direction for Arabic content |
+| **Course Management** | Detailed pages for each grade level and subject |
+| **Registration System** | Secure student registration with Supabase backend |
+| **Schedule Management** | View and manage class schedules |
+
+### 🖼️ Application Preview
+
+#### Home Page
+![Home Page Preview](https://via.placeholder.com/800x400/1a365d/ffffff?text=Alostaz+Math+Center+Home+Page)
+*Interactive home page with course highlights*
+
+#### Mobile View
+```mermaid
+graph TD
+    A[Home] --> B[About]
+    A --> C[Courses]
+    A --> D[Schedule]
+    A --> E[Register]
+    
+    style A fill:#2b6cb0,color:white
+    style B fill:#4299e1
+    style C fill:#4299e1
+    style D fill:#4299e1
+    style E fill:#2c5282,color:white
+```
+*Mobile navigation flow*
 
 ## 🚀 Quick Start
 
@@ -57,7 +72,7 @@
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/Alostaz_React.git
+   git clone https://github.com/www-e/Alostaz.git
    cd Alostaz_React
    ```
 
@@ -90,73 +105,151 @@
 
 ## 🏗 Project Structure
 
-```
-Alostaz_React/
-├── public/                 # Static files
-│   └── assets/            # Images, icons, and other assets
-├── src/
-│   ├── app/               # App Router pages
-│   │   ├── about/         # About page
-│   │   ├── grade1/        # Grade 1 page
-│   │   ├── grade2/        # Grade 2 page
-│   │   ├── grade3/        # Grade 3 page
-│   │   ├── registration/  # Registration page
-│   │   ├── schedule/      # Schedule page
-│   │   ├── globals.css    # Global styles
-│   │   ├── layout.tsx     # Root layout
-│   │   └── page.tsx       # Home page
-│   │
-│   ├── components/       # Reusable UI components
-│   │   ├── AboutSection.tsx
-│   │   ├── ContactSection.tsx
-│   │   ├── CoursesSection.tsx
-│   │   ├── Footer.tsx
-│   │   ├── HeroSection.tsx
-│   │   ├── Navbar.tsx
-│   │   └── ThemeProvider.tsx
-│   │
-│   └── lib/             # Utilities and configurations
-│       └── supabase.ts    # Supabase client configuration
-│
-├── .gitignore
-├── next.config.js         # Next.js configuration
-├── package.json
-├── package-lock.json
-└── tsconfig.json          # TypeScript configuration
+```mermaid
+graph TD
+    A[Alostaz_React] --> B[public/]
+    A --> C[src/]
+    B --> B1[assets/]
+    C --> C1[app/]
+    C --> C2[components/]
+    C --> C3[lib/]
+    
+    C1 --> C1a[about/]
+    C1 --> C1b[grade1/]
+    C1 --> C1c[grade2/]
+    C1 --> C1d[grade3/]
+    C1 --> C1e[registration/]
+    C1 --> C1f[schedule/]
+    C1 --> C1g[globals.css]
+    C1 --> C1h[layout.tsx]
+    C1 --> C1i[page.tsx]
+    
+    C2 --> C2a[AboutSection.tsx]
+    C2 --> C2b[ContactSection.tsx]
+    C2 --> C2c[CoursesSection.tsx]
+    C2 --> C2d[Footer.tsx]
+    C2 --> C2e[HeroSection.tsx]
+    C2 --> C2f[Navbar.tsx]
+    C2 --> C2g[ThemeProvider.tsx]
+    
+    C3 --> C3a[supabase.ts]
 ```
 
-## 🛠️ Tech Stack
+### Key Files and Directories
+
+| Directory/File | Purpose |
+|----------------|---------|
+| `public/assets/` | Static assets (images, icons, PDFs) |
+| `src/app/` | Next.js app router pages |
+| `src/components/` | Reusable React components |
+| `src/lib/` | Utility functions and configurations |
+| `src/app/layout.tsx` | Root layout component |
+| `src/app/page.tsx` | Home page component |
+| `tailwind.config.js` | Tailwind CSS configuration |
+| `tsconfig.json` | TypeScript configuration |
+
+## 🛠️ Technology Stack
 
 ### Core Technologies
-| Technology | Purpose |
-|------------|---------|
-| ![Next.js](https://img.icons8.com/color/48/000000/nextjs.png) **Next.js 14** | React framework with SSR/SSG |
-| ![React](https://img.icons8.com/color/48/000000/react-native.png) **React 18** | UI component library |
-| ![TypeScript](https://img.icons8.com/color/48/000000/typescript.png) **TypeScript** | Type-safe JavaScript |
-| ![Tailwind CSS](https://img.icons8.com/color/48/000000/tailwindcss.png) **Tailwind CSS** | Utility-first CSS framework |
-| ![Supabase](https://img.icons8.com/color/48/000000/supabase.png) **Supabase** | Backend as a Service |
-
-### Development Tools
-| Tool | Purpose |
-|------|---------|
-| ![ESLint](https://img.icons8.com/color/48/000000/eslint.png) **ESLint** | Code linting |
-| ![Prettier](https://img.icons8.com/color/48/000000/prettier.png) **Prettier** | Code formatting |
-| ![Framer Motion](https://img.icons8.com/color/48/000000/motion.png) **Framer Motion** | Animation library |
-| ![React Icons](https://img.icons8.com/color/48/000000/react.png) **React Icons** | Icon library |
-
-## 📊 Project Status
 
 ```mermaid
 pie
-    title Feature Completion
-    "Completed" : 80
-    "In Progress" : 15
-    "Planned" : 5
+    title Core Technologies
+    "Next.js 14" : 30
+    "React 18" : 25
+    "TypeScript" : 20
+    "Tailwind CSS" : 15
+    "Supabase" : 10
 ```
+
+### Frontend
+- **Next.js 14** - React framework with SSR/SSG
+- **React 18** - UI component library
+- **TypeScript** - Type-safe JavaScript
+- **Tailwind CSS** - Utility-first CSS framework
+- **Framer Motion** - Animation library
+
+### Backend
+- **Supabase** - Backend as a Service
+  - Authentication
+  - Database
+  - Storage
+  - Real-time Subscriptions
+
+### Development Tools
+- **ESLint** - Code linting
+- **Prettier** - Code formatting
+- **Husky** - Git hooks
+- **Commitlint** - Commit message linting
+
+### Testing
+- **Jest** - Testing framework
+- **React Testing Library** - Component testing
+- **Cypress** - E2E testing
+
+## 📊 Project Status & Progress
+
+### Feature Completion
+```mermaid
+gantt
+    title Project Timeline
+    dateFormat  YYYY-MM-DD
+    section Core Features
+    Authentication      :done,    des1, 2025-01-01, 30d
+    Course Management   :done,    des2, 2025-02-01, 45d
+    User Dashboard      :active,  des3, 2025-03-15, 30d
+    Admin Panel         :         des4, 2025-04-15, 45d
+    
+    section Mobile App
+    Design              :         des5, 2025-05-01, 30d
+    Development         :         des6, 2025-06-01, 60d
+    Testing             :         des7, 2025-08-01, 30d
+```
+
+### Progress Overview
+| Component | Status | Progress |
+|-----------|--------|----------|
+| Frontend | 🟢 Complete | 95% |
+| Backend | 🟡 In Progress | 80% |
+| Testing | 🟠 Planned | 20% |
+| Documentation | 🟡 In Progress | 70% |
+
+### Upcoming Features
+- [x] User Authentication
+- [x] Course Management
+- [ ] Interactive Quizzes
+- [ ] Progress Tracking
+- [ ] Mobile Application
+- [ ] Admin Dashboard
 
 ## 📚 Documentation
 
-For detailed technical documentation, please refer to our [TECHNICAL_README.md](./TECHNICAL_README.md).
+### Getting Started
+1. [Installation Guide](./docs/INSTALLATION.md)
+2. [Configuration](./docs/CONFIGURATION.md)
+3. [Deployment](./docs/DEPLOYMENT.md)
+
+### Development
+- [API Reference](./docs/API.md)
+- [Component Library](./docs/COMPONENTS.md)
+- [Testing Guide](./docs/TESTING.md)
+
+### Additional Resources
+- [Technical Documentation](./TECHNICAL_README.md)
+- [Contribution Guidelines](./CONTRIBUTING.md)
+- [Code of Conduct](./CODE_OF_CONDUCT.md)
+
+### API Endpoints
+```mermaid
+flowchart LR
+    A[Client] -->|HTTP Request| B[API Gateway]
+    B --> C[Authentication]
+    B --> D[Course Service]
+    B --> E[User Service]
+    C --> F[(Database)]
+    D --> F
+    E --> F
+```
 
 ## 🤝 Contributing
 
@@ -179,8 +272,27 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [Supabase Documentation](https://supabase.com/docs)
 - [React Icons](https://react-icons.github.io/react-icons/)
 
-<div align="center">
-  Made with ❤️ by Your Name
+<div align="center" dir="rtl" style="font-family: 'Tajawal', sans-serif; margin-top: 2rem; padding: 1.5rem; background: #f8fafc; border-radius: 0.5rem;">
+  <h3 style="color: #2d3748; margin-bottom: 1rem;">تواصل معنا</h3>
+  <p style="color: #4a5568; margin-bottom: 1rem;">للاستفسارات أو الدعم الفني، يرجى التواصل عبر:</p>
+  <p style="color: #2b6cb0; font-weight: 500;">البريد الإلكتروني: info@alostaz.com</p>
+  <p style="color: #2b6cb0; font-weight: 500;">الهاتف: +1234567890</p>
+  
+  <div style="margin-top: 1.5rem;">
+    <a href="#" style="margin: 0 0.5rem;">
+      <img src="https://img.icons8.com/color/32/000000/facebook.png" alt="Facebook" width="32" height="32">
+    </a>
+    <a href="#" style="margin: 0 0.5rem;">
+      <img src="https://img.icons8.com/color/32/000000/twitter.png" alt="Twitter" width="32" height="32">
+    </a>
+    <a href="#" style="margin: 0 0.5rem;">
+      <img src="https://img.icons8.com/color/32/000000/instagram.png" alt="Instagram" width="32" height="32">
+    </a>
+  </div>
+  
+  <p style="margin-top: 1.5rem; color: #718096; font-size: 0.875rem;">
+    © 2025 Alostaz Math Center. جميع الحقوق محفوظة.
+  </p>
 </div>
      ```
 
@@ -195,5 +307,4 @@ This application can be deployed to any platform that supports Next.js applicati
 
 ## Credits
 
-- Design and Development: [Your Name]
-- Original Content: أ/ أشرف حسن
+- Design and Development: Omar Ashraf
