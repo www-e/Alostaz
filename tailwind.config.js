@@ -22,6 +22,21 @@ module.exports = {
       fontFamily: {
         cairo: ['Cairo', 'sans-serif'],
       },
+      animation: {
+        float: 'float 3s ease-in-out infinite',
+        'float-slow': 'float-slow 6s ease-in-out infinite',
+      },
+      keyframes: {
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
+        'float-slow': {
+          '0%': { transform: 'translateY(0) rotate(0deg)' },
+          '50%': { transform: 'translateY(-15px) rotate(10deg)' },
+          '100%': { transform: 'translateY(0) rotate(0deg)' },
+        },
+      },
     },
   },
   plugins: [],

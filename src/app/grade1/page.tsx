@@ -59,7 +59,7 @@ export default function Grade1() {
       </section>
       
       {/* Cards Section */}
-      <section className="py-16 bg-gray-50 dark:bg-gray-800">
+      <section className="py-16 bg-[var(--bg-secondary)] dark:bg-[var(--bg-secondary)]">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {subjects.map((subject) => (
@@ -70,7 +70,7 @@ export default function Grade1() {
       </section>
       
       {/* Resources Section */}
-      <section className="py-16 bg-white dark:bg-gray-900">
+      <section className="py-16 bg-[var(--bg-primary)] dark:bg-[var(--bg-primary)]">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="section-title">موارد إضافية</h2>
@@ -104,7 +104,7 @@ export default function Grade1() {
       </section>
       
       {/* Study Plan Section */}
-      <section className="py-16 bg-gray-50 dark:bg-gray-800">
+      <section className="py-16 bg-[var(--bg-secondary)] dark:bg-[var(--bg-secondary)]">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="section-title">خطة الدراسة</h2>
@@ -112,7 +112,7 @@ export default function Grade1() {
             <p className="section-subtitle">خطة دراسية مقترحة للتفوق في الصف الأول الثانوي</p>
           </div>
           
-          <div className="max-w-3xl mx-auto bg-white dark:bg-gray-900 rounded-xl shadow-lg p-6">
+          <div className="max-w-3xl mx-auto bg-[var(--bg-primary)] dark:bg-[var(--bg-primary)] rounded-xl shadow-lg p-6">
             <div className="space-y-6">
               <PlanStep 
                 number={1}
@@ -157,12 +157,12 @@ interface SubjectCardProps {
 
 const SubjectCard = ({ subject }: SubjectCardProps) => {
   return (
-    <div className="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-6 text-center transition-all duration-300 hover:shadow-xl hover:transform hover:-translate-y-2">
+    <div className="bg-[var(--bg-primary)] dark:bg-[var(--bg-primary)] rounded-xl shadow-lg p-6 text-center transition-all duration-300 hover:shadow-xl hover:transform hover:-translate-y-2">
       <div className="w-16 h-16 mx-auto bg-primary/10 dark:bg-primary/20 rounded-full flex items-center justify-center text-primary dark:text-primary-light mb-4">
         {subject.icon}
       </div>
-      <h3 className="text-xl font-bold mb-2">{subject.title}</h3>
-      <p className="text-gray-600 dark:text-gray-300 mb-6">{subject.description}</p>
+      <h3 className="text-xl font-bold mb-2 text-[var(--text-primary)] dark:text-[var(--text-primary)]">{subject.title}</h3>
+      <p className="text-[var(--text-secondary)] dark:text-[var(--text-secondary)] mb-6">{subject.description}</p>
       <a 
         href={subject.link} 
         target="_blank" 
@@ -183,9 +183,9 @@ interface ResourceCardProps {
 
 const ResourceCard = ({ title, description, link }: ResourceCardProps) => {
   return (
-    <div className="bg-gray-100 dark:bg-gray-800 rounded-lg p-4 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300">
-      <h3 className="font-bold mb-2">{title}</h3>
-      <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">{description}</p>
+    <div className="bg-[var(--bg-tertiary)] dark:bg-[var(--bg-tertiary)] rounded-lg p-4 hover:bg-gray-200 dark:hover:bg-[var(--bg-secondary)] transition-colors duration-300">
+      <h3 className="font-bold mb-2 text-[var(--text-primary)] dark:text-[var(--text-primary)]">{title}</h3>
+      <p className="text-sm text-[var(--text-secondary)] dark:text-[var(--text-secondary)] mb-3">{description}</p>
       <a 
         href={link} 
         className="text-primary dark:text-primary-light hover:underline text-sm font-medium"
@@ -209,8 +209,8 @@ const PlanStep = ({ number, title, description }: PlanStepProps) => {
         {number}
       </div>
       <div>
-        <h3 className="font-bold text-lg mb-1">{title}</h3>
-        <p className="text-gray-600 dark:text-gray-300">{description}</p>
+        <h3 className="font-bold text-lg mb-1 text-[var(--text-primary)] dark:text-[var(--text-primary)]">{title}</h3>
+        <p className="text-[var(--text-secondary)] dark:text-[var(--text-secondary)]">{description}</p>
       </div>
     </div>
   );

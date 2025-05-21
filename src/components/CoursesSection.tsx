@@ -2,6 +2,14 @@ import Link from 'next/link';
 import { FaBook, FaClock, FaTasks, FaCheckCircle, FaVideo, FaFilePdf, FaChalkboardTeacher, FaBrain, FaArrowLeft, FaStarOfLife } from 'react-icons/fa';
 
 const CoursesSection = () => {
+  // Add decorative elements for the background
+  const decorativeElements = [
+    { top: '10%', left: '5%', size: '150px', color: 'primary', opacity: '0.05', delay: '0s', duration: '15s' },
+    { top: '60%', right: '8%', size: '200px', color: 'secondary', opacity: '0.07', delay: '2s', duration: '20s' },
+    { top: '30%', right: '15%', size: '100px', color: 'primary-light', opacity: '0.04', delay: '1s', duration: '18s' },
+    { top: '80%', left: '20%', size: '120px', color: 'primary-dark', opacity: '0.06', delay: '3s', duration: '17s' },
+  ];
+  
   const courses = [
     {
       id: 1,
@@ -72,15 +80,32 @@ const CoursesSection = () => {
   ];
 
   return (
-    <section id="courses" className="py-16 bg-white dark:bg-gray-900">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="section-title">الصفوف الدراسية</h2>
-          <div className="section-line"></div>
-          <p className="section-subtitle">جميع صفوف الرياضيات للثانوية العامة</p>
+    <section id="courses" className="py-20 bg-gradient-to-br from-[var(--bg-primary)] to-[var(--bg-secondary)] dark:from-[var(--bg-primary)] dark:to-[var(--bg-secondary)] relative overflow-hidden">
+      {/* Decorative animated elements */}
+      {decorativeElements.map((elem, index) => (
+        <div 
+          key={index}
+          className={`absolute rounded-full bg-[var(--${elem.color})] opacity-${elem.opacity} blur-3xl animate-float-slow`}
+          style={{
+            top: elem.top,
+            [elem.left ? 'left' : 'right']: elem.left || elem.right,
+            width: elem.size,
+            height: elem.size,
+            animationDelay: elem.delay,
+            animationDuration: elem.duration,
+            zIndex: 0
+          }}
+        />
+      ))}
+      
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary-light to-secondary">الصفوف الدراسية</h2>
+          <div className="w-32 h-1 mx-auto my-4 bg-gradient-to-r from-primary-light via-secondary to-primary-light rounded-full"></div>
+          <p className="text-xl text-[var(--text-secondary)] dark:text-[var(--text-secondary)] max-w-2xl mx-auto">جميع صفوف الرياضيات للثانوية العامة مع شرح مفصل وتمارين متنوعة</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {courses.map((course) => (
             <CourseCard key={course.id} course={course} />
           ))}
@@ -108,53 +133,76 @@ interface CourseCardProps {
 
 const CourseCard = ({ course }: CourseCardProps) => {
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden border border-gray-100 dark:border-gray-700 transition-transform duration-300 hover:transform hover:-translate-y-2">
-      <div className="relative bg-gradient-to-r from-primary to-primary-light text-white py-3 px-4">
-        <div className="flex items-center gap-2">
-          <FaStarOfLife className="text-white/80" />
-          <span className="font-bold">{course.title}</span>
+    <div className="group bg-[var(--bg-card)]/80 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden border border-[var(--border-light)]/20 hover:border-primary/30 transition-all duration-500 hover:shadow-xl hover:shadow-primary/20 hover:-translate-y-2">
+      <div className="relative bg-gradient-to-r from-primary via-primary-light to-secondary text-white py-4 px-6">
+        <div className="flex items-center gap-3">
+          <div className="w-8 h-8 flex items-center justify-center bg-white/20 backdrop-blur-sm rounded-full">
+            <FaStarOfLife className="text-white" />
+          </div>
+          <span className="font-bold text-xl">{course.title}</span>
         </div>
+        
+        {/* Decorative element */}
+        <div className="absolute -bottom-6 right-0 w-32 h-12 bg-primary/10 rounded-tl-full blur-xl"></div>
       </div>
       
-      <div className="p-6">
+      <div className="p-6 relative">
         {/* Stats */}
-        <div className="flex justify-between mb-6">
-          <div className="flex items-center gap-2">
-            <FaBook className="text-primary dark:text-primary-light" />
-            <span>{course.stats.lessons} درس</span>
+        <div className="flex justify-between mb-8 bg-[var(--bg-card)]/50 p-3 rounded-xl border border-[var(--border-light)]/10">
+          <div className="flex flex-col items-center gap-1">
+            <div className="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full text-primary dark:text-primary-light group-hover:scale-110 transition-transform duration-300">
+              <FaBook />
+            </div>
+            <span className="text-sm font-medium">{course.stats.lessons} درس</span>
           </div>
-          <div className="flex items-center gap-2">
-            <FaClock className="text-primary dark:text-primary-light" />
-            <span>{course.stats.hours} ساعة</span>
+          <div className="flex flex-col items-center gap-1">
+            <div className="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full text-primary dark:text-primary-light group-hover:scale-110 transition-transform duration-300" style={{ transitionDelay: '50ms' }}>
+              <FaClock />
+            </div>
+            <span className="text-sm font-medium">{course.stats.hours} ساعة</span>
           </div>
-          <div className="flex items-center gap-2">
-            <FaTasks className="text-primary dark:text-primary-light" />
-            <span>{course.stats.tests} اختبار</span>
+          <div className="flex flex-col items-center gap-1">
+            <div className="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full text-primary dark:text-primary-light group-hover:scale-110 transition-transform duration-300" style={{ transitionDelay: '100ms' }}>
+              <FaTasks />
+            </div>
+            <span className="text-sm font-medium">{course.stats.tests} اختبار</span>
           </div>
         </div>
         
         {/* Topics */}
-        <div className="mb-6">
-          <h4 className="font-bold text-lg mb-3">المواضيع الرئيسية</h4>
-          <ul className="space-y-2">
+        <div className="mb-8">
+          <h4 className="font-bold text-lg mb-4 flex items-center">
+            <span className="w-1 h-6 bg-primary rounded-full mr-2"></span>
+            المواضيع الرئيسية
+          </h4>
+          <ul className="space-y-3">
             {course.topics.map((topic, index) => (
-              <li key={index} className="flex items-center gap-2">
-                <FaCheckCircle className="text-green-500" />
-                <span>{topic}</span>
+              <li key={index} className="flex items-center gap-3 group-hover:translate-x-1 transition-transform duration-300" style={{ transitionDelay: `${index * 50}ms` }}>
+                <div className="w-6 h-6 flex items-center justify-center bg-green-100 dark:bg-green-900/30 rounded-full text-green-600 dark:text-green-400">
+                  <FaCheckCircle className="text-sm" />
+                </div>
+                <span className="text-[var(--text-primary)]">{topic}</span>
               </li>
             ))}
           </ul>
         </div>
         
         {/* Features */}
-        <div className="mb-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div className="mb-8">
+          <h4 className="font-bold text-lg mb-4 flex items-center">
+            <span className="w-1 h-6 bg-secondary rounded-full mr-2"></span>
+            المميزات
+          </h4>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {course.features.map((feature, index) => {
               const icons = [<FaVideo key={0} />, <FaFilePdf key={1} />, <FaChalkboardTeacher key={2} />, <FaBrain key={3} />];
+              const colors = ['primary', 'secondary', 'primary-light', 'secondary-light'];
               return (
-                <div key={index} className="flex items-center gap-2">
-                  <span className="text-primary dark:text-primary-light">{icons[index]}</span>
-                  <span className="text-sm">{feature}</span>
+                <div key={index} className="flex items-center gap-3 group-hover:translate-x-1 transition-transform duration-300" style={{ transitionDelay: `${index * 50}ms` }}>
+                  <div className={`w-8 h-8 flex items-center justify-center bg-[var(--${colors[index]})]/10 rounded-full text-[var(--${colors[index]})]`}>
+                    {icons[index]}
+                  </div>
+                  <span className="text-sm font-medium">{feature}</span>
                 </div>
               );
             })}
@@ -162,15 +210,15 @@ const CourseCard = ({ course }: CourseCardProps) => {
         </div>
         
         {/* Progress */}
-        <div className="mb-6">
-          <div className="flex justify-between mb-2">
-            <span>اكتمال المنهج</span>
-            <span className="font-bold">{course.progress}%</span>
+        <div className="mb-8">
+          <div className="flex justify-between mb-3">
+            <span className="text-[var(--text-secondary)]">اكتمال المنهج</span>
+            <span className="font-bold text-primary">{course.progress}%</span>
           </div>
-          <div className="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+          <div className="w-full h-3 bg-[var(--bg-card)]/50 rounded-full overflow-hidden border border-[var(--border-light)]/10">
             <div 
-              className="h-full bg-primary dark:bg-primary-light rounded-full" 
-              style={{ width: `${course.progress}%` }}
+              className="h-full bg-gradient-to-r from-primary to-primary-light rounded-full" 
+              style={{ width: `${course.progress}%`, transition: 'width 1s ease-in-out' }}
             ></div>
           </div>
         </div>
@@ -178,10 +226,11 @@ const CourseCard = ({ course }: CourseCardProps) => {
         {/* Action Button */}
         <Link 
           href={course.link} 
-          className="flex items-center justify-center gap-2 w-full bg-primary hover:bg-primary-dark text-white py-3 px-6 rounded-lg transition-colors duration-300"
+          className="group/btn flex items-center justify-center gap-3 w-full bg-gradient-to-r from-primary to-secondary hover:from-primary-dark hover:to-secondary-dark text-white py-4 px-6 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg relative overflow-hidden"
         >
-          <span>ابدأ التعلم الآن</span>
-          <FaArrowLeft />
+          <span className="relative z-10 font-medium">ابدأ التعلم الآن</span>
+          <FaArrowLeft className="relative z-10 group-hover/btn:-translate-x-1 transition-transform duration-300" />
+          <div className="absolute inset-0 bg-white/20 transform scale-x-0 group-hover/btn:scale-x-100 origin-left transition-transform duration-300"></div>
         </Link>
       </div>
     </div>

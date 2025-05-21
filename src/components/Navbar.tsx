@@ -8,6 +8,34 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [theme, setTheme] = useState('light');
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeLink, setActiveLink] = useState('/');
+  
+  // Get current path to determine active link
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const path = window.location.pathname;
+      const hash = window.location.hash;
+      
+      if (hash) {
+        setActiveLink(hash);
+      } else {
+        setActiveLink(path);
+      }
+      
+      // Listen for hash changes
+      const handleHashChange = () => {
+        const newHash = window.location.hash;
+        if (newHash) {
+          setActiveLink(newHash);
+        } else {
+          setActiveLink(window.location.pathname);
+        }
+      };
+      
+      window.addEventListener('hashchange', handleHashChange);
+      return () => window.removeEventListener('hashchange', handleHashChange);
+    }
+  }, []);
 
   useEffect(() => {
     // Check if we're on the client side
@@ -17,70 +45,101 @@ const Navbar = () => {
       setTheme(savedTheme);
       document.documentElement.setAttribute('data-theme', savedTheme);
       
-      // Add scroll event listener
+      // Apply initial scroll state
+      setIsScrolled(window.scrollY > 20);
+      
+      // Add scroll event listener with debounce for performance
       const handleScroll = () => {
         setIsScrolled(window.scrollY > 20);
       };
       
-      window.addEventListener('scroll', handleScroll);
-      return () => window.removeEventListener('scroll', handleScroll);
+      // Throttle scroll event for better performance
+      let isThrottled = false;
+      const throttledScrollHandler = () => {
+        if (!isThrottled) {
+          handleScroll();
+          isThrottled = true;
+          setTimeout(() => {
+            isThrottled = false;
+          }, 100);
+        }
+      };
+      
+      window.addEventListener('scroll', throttledScrollHandler);
+      return () => window.removeEventListener('scroll', throttledScrollHandler);
     }
   }, []);
 
   const toggleTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
     setTheme(newTheme);
+    
+    // Apply theme with transition effect
+    document.documentElement.classList.add('theme-transition');
     document.documentElement.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
+    
+    // Remove transition class after animation completes
+    setTimeout(() => {
+      document.documentElement.classList.remove('theme-transition');
+    }, 500);
   };
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'py-2' : 'py-4'}`}>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'py-2' : 'py-4'}`}>
       <div className="container mx-auto px-4">
-        <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-md shadow-lg rounded-xl px-4 py-3">
+        <div className={`bg-[var(--bg-card)]/80 dark:bg-[var(--bg-card)]/80 backdrop-blur-md shadow-lg rounded-2xl px-6 py-4 border border-[var(--border-light)]/20 transition-all duration-500 ${isScrolled ? 'shadow-primary/5' : ''}`}>
           <div className="flex items-center justify-between">
-            <Link href="/" className="text-xl font-bold text-primary dark:text-primary-light">
-              أ/ أشرف حسن
+            <Link href="/" className="relative group">
+              <div className="absolute -inset-2 bg-gradient-to-r from-primary to-secondary rounded-lg opacity-0 group-hover:opacity-20 blur-md transition-all duration-500"></div>
+              <div className="relative flex items-center gap-3">
+                <div className="w-10 h-10 flex items-center justify-center bg-gradient-to-br from-primary to-secondary rounded-full text-white font-bold text-lg shadow-md">
+                  أ
+                </div>
+                <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
+                  أشرف حسن
+                </span>
+              </div>
             </Link>
             
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-5">
               {/* Theme toggle button */}
               <button 
                 onClick={toggleTheme} 
-                className="p-2 rounded-full bg-gray-100 dark:bg-gray-700 text-primary dark:text-primary-light"
+                className="p-3 rounded-full bg-[var(--bg-card)]/50 border border-[var(--border-light)]/20 text-[var(--text-primary)] hover:bg-[var(--bg-card)] transition-all duration-300 shadow-sm hover:shadow"
                 aria-label="Toggle Theme"
               >
-                {theme === 'light' ? <FaMoon /> : <FaSun />}
+                {theme === 'light' ? <FaMoon className="text-primary" /> : <FaSun className="text-primary-light" />}
               </button>
               
               {/* Mobile menu button */}
               <button 
-                className="md:hidden p-2 rounded-lg text-primary dark:text-primary-light"
+                className="md:hidden p-3 rounded-full bg-[var(--bg-card)]/50 border border-[var(--border-light)]/20 text-[var(--text-primary)] hover:bg-[var(--bg-card)] transition-all duration-300 shadow-sm hover:shadow"
                 onClick={() => setIsOpen(!isOpen)}
                 aria-label="Toggle Menu"
               >
-                <FaBars />
+                <FaBars className="text-primary" />
               </button>
               
               {/* Desktop menu */}
-              <div className="hidden md:flex items-center space-x-1 space-x-reverse">
-                <NavLink href="/" isActive={true}>الرئيسية</NavLink>
-                <NavLink href="/about">نبذة عني</NavLink>
-                <NavLink href="/#courses">الصفوف الدراسية</NavLink>
-                <NavLink href="/#contact">تواصل معي</NavLink>
-                <NavLink href="/schedule">المواعيد</NavLink>
+              <div className="hidden md:flex items-center gap-2">
+                <NavLink href="/" isActive={activeLink === '/'}>الرئيسية</NavLink>
+                <NavLink href="/about" isActive={activeLink === '/about'}>نبذة عني</NavLink>
+                <NavLink href="/#courses" isActive={activeLink === '#courses'}>الصفوف الدراسية</NavLink>
+                <NavLink href="/#contact" isActive={activeLink === '#contact'}>تواصل معي</NavLink>
+                <NavLink href="/schedule" isActive={activeLink === '/schedule'}>المواعيد</NavLink>
               </div>
             </div>
           </div>
           
           {/* Mobile menu */}
-          <div className={`md:hidden transition-all duration-300 overflow-hidden ${isOpen ? 'max-h-60 mt-4' : 'max-h-0'}`}>
-            <div className="flex flex-col space-y-2 pb-3">
-              <NavLink href="/" isActive={true} mobile>الرئيسية</NavLink>
-              <NavLink href="/about" mobile>نبذة عني</NavLink>
-              <NavLink href="/#courses" mobile>الصفوف الدراسية</NavLink>
-              <NavLink href="/#contact" mobile>تواصل معي</NavLink>
-              <NavLink href="/schedule" mobile>المواعيد</NavLink>
+          <div className={`md:hidden transition-all duration-500 overflow-hidden ${isOpen ? 'max-h-80 mt-6 opacity-100' : 'max-h-0 opacity-0'}`}>
+            <div className="flex flex-col space-y-3 pb-3 border-t border-[var(--border-light)]/10 pt-4">
+              <NavLink href="/" isActive={activeLink === '/'} mobile>الرئيسية</NavLink>
+              <NavLink href="/about" isActive={activeLink === '/about'} mobile>نبذة عني</NavLink>
+              <NavLink href="/#courses" isActive={activeLink === '#courses'} mobile>الصفوف الدراسية</NavLink>
+              <NavLink href="/#contact" isActive={activeLink === '#contact'} mobile>تواصل معي</NavLink>
+              <NavLink href="/schedule" isActive={activeLink === '/schedule'} mobile>المواعيد</NavLink>
             </div>
           </div>
         </div>
@@ -97,18 +156,29 @@ interface NavLinkProps {
 }
 
 const NavLink = ({ href, children, isActive = false, mobile = false }: NavLinkProps) => {
-  const baseClasses = "transition-colors duration-300";
+  const baseClasses = "transition-all duration-300 font-medium";
+  
   const mobileClasses = mobile 
-    ? "block py-2 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700" 
-    : "px-4 py-2 rounded-lg";
+    ? "block py-3 px-5 rounded-xl hover:bg-[var(--bg-card)]/70 relative overflow-hidden group" 
+    : "px-4 py-2 rounded-xl relative overflow-hidden group";
   
   const activeClasses = isActive 
-    ? "text-white bg-primary dark:bg-primary-light" 
-    : "text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700";
+    ? "text-white bg-gradient-to-r from-primary to-secondary shadow-md" 
+    : "text-[var(--text-primary)] hover:bg-[var(--bg-card)]/70 border border-[var(--border-light)]/20";
   
   return (
     <Link href={href} className={`${baseClasses} ${mobileClasses} ${activeClasses}`}>
-      {children}
+      {/* Hover effect for non-active links */}
+      {!isActive && (
+        <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-primary/10 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+      )}
+      
+      {/* Active link effect */}
+      {isActive && (
+        <span className="absolute inset-0 w-full h-full opacity-20 bg-white/10"></span>
+      )}
+      
+      <span className="relative z-10">{children}</span>
     </Link>
   );
 };
