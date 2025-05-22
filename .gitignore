@@ -1,5 +1,5 @@
 # .gitignore
-
+/.windsurf
 # dependencies
 /node_modules
 
