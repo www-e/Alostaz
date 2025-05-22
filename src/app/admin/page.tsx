@@ -53,7 +53,16 @@ export default function AdminDashboardPage() {
         const { students, error: studentsError } = await getAllStudents();
         
         if (studentsError) {
+          console.error('Error fetching students:', studentsError);
           showToast.showErrorToast('خطأ في جلب البيانات', studentsError);
+          // Set default stats even when there's an error to prevent infinite loading
+          setStats({
+            totalStudents: 0,
+            activeStudents: 0,
+            attendanceRate: 0,
+            paymentRate: 0,
+          });
+          setIsLoading(false);
           return;
         }
         
@@ -72,14 +81,19 @@ export default function AdminDashboardPage() {
         let attendanceStats: { status: string; count: number }[] = [];
         
         if (sampleStudent) {
-          const { stats: attStats, error: attError } = await getStudentAttendanceStats(
-            sampleStudent.id,
-            formatDateForDB(firstDayOfMonth),
-            formatDateForDB(lastDayOfMonth)
-          );
-          
-          if (!attError) {
-            attendanceStats = attStats;
+          try {
+            const { stats: attStats, error: attError } = await getStudentAttendanceStats(
+              sampleStudent.id,
+              formatDateForDB(firstDayOfMonth),
+              formatDateForDB(lastDayOfMonth)
+            );
+            
+            if (!attError) {
+              attendanceStats = attStats;
+            }
+          } catch (attError) {
+            console.error('Error fetching attendance stats:', attError);
+            // Continue with empty attendance stats
           }
         }
         
@@ -100,6 +114,13 @@ export default function AdminDashboardPage() {
       } catch (error) {
         console.error('Error fetching dashboard data:', error);
         showToast.showErrorToast('خطأ غير متوقع', 'حدث خطأ أثناء جلب بيانات لوحة التحكم');
+        // Set default stats even when there's an error to prevent infinite loading
+        setStats({
+          totalStudents: 0,
+          activeStudents: 0,
+          attendanceRate: 0,
+          paymentRate: 0,
+        });
       } finally {
         setIsLoading(false);
       }
@@ -241,7 +262,7 @@ const StatCard: React.FC<StatCardProps> = ({
       />
       <CardBody>
         <Flex justify="space-between" align="center">
-          <Box>
+          <Stat>
             <StatLabel fontSize="sm" color="gray.500">
               {title}
             </StatLabel>
@@ -249,7 +270,7 @@ const StatCard: React.FC<StatCardProps> = ({
               {value}
             </StatNumber>
             <StatHelpText fontSize="xs">{helpText}</StatHelpText>
-          </Box>
+          </Stat>
           <Flex
             width="50px"
             height="50px"

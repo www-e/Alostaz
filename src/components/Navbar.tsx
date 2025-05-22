@@ -2,13 +2,15 @@
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import { FaBars, FaMoon, FaSun } from 'react-icons/fa';
+import { FaBars, FaMoon, FaSun, FaSignInAlt, FaUserCircle, FaSignOutAlt } from 'react-icons/fa';
+import { useAuth } from '@/lib/hooks/useAuth';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [theme, setTheme] = useState('light');
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeLink, setActiveLink] = useState('/');
+  const { user, logout, isAdmin } = useAuth();
   
   // Get current path to determine active link
   useEffect(() => {
@@ -125,18 +127,71 @@ const Navbar = () => {
                 <NavLink href="/#courses" isActive={activeLink === '#courses'}>الصفوف الدراسية</NavLink>
                 <NavLink href="/#contact" isActive={activeLink === '#contact'}>تواصل معي</NavLink>
                 <NavLink href="/schedule" isActive={activeLink === '/schedule'}>المواعيد</NavLink>
+                
+                {user ? (
+                  <div className="flex items-center gap-2">
+                    <NavLink href="/profile" className="flex items-center gap-2">
+                      <FaUserCircle className="text-xl" />
+                      <span>حسابي</span>
+                    </NavLink>
+                    <button 
+                      onClick={logout}
+                      className="px-4 py-2 text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors duration-200 flex items-center gap-2"
+                    >
+                      <FaSignOutAlt />
+                      <span>تسجيل خروج</span>
+                    </button>
+                  </div>
+                ) : (
+                  <NavLink 
+                    href="/auth/login" 
+                    className="bg-gradient-to-r from-primary to-primary-dark text-white hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5 transition-all duration-200 flex items-center gap-2"
+                  >
+                    <FaSignInAlt />
+                    <span>تسجيل الدخول</span>
+                  </NavLink>
+                )}
               </div>
             </div>
           </div>
           
           {/* Mobile menu */}
-          <div className={`md:hidden transition-all duration-500 overflow-hidden ${isOpen ? 'max-h-80 mt-6 opacity-100' : 'max-h-0 opacity-0'}`}>
+          <div className={`md:hidden transition-all duration-500 overflow-hidden ${isOpen ? 'max-h-96 mt-6 opacity-100' : 'max-h-0 opacity-0'}`}>
             <div className="flex flex-col space-y-3 pb-3 border-t border-[var(--border-light)]/10 pt-4">
               <NavLink href="/" isActive={activeLink === '/'} mobile>الرئيسية</NavLink>
               <NavLink href="/about" isActive={activeLink === '/about'} mobile>نبذة عني</NavLink>
               <NavLink href="/#courses" isActive={activeLink === '#courses'} mobile>الصفوف الدراسية</NavLink>
               <NavLink href="/#contact" isActive={activeLink === '#contact'} mobile>تواصل معي</NavLink>
               <NavLink href="/schedule" isActive={activeLink === '/schedule'} mobile>المواعيد</NavLink>
+              
+              {user ? (
+                <>
+                  <NavLink href="/profile" mobile className="flex items-center gap-2">
+                    <FaUserCircle className="text-xl" />
+                    <span>حسابي</span>
+                  </NavLink>
+                  <button 
+                    onClick={() => {
+                      logout();
+                      setIsOpen(false);
+                    }}
+                    className="w-full text-right px-5 py-3 text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors duration-200 flex items-center justify-end gap-2"
+                  >
+                    <FaSignOutAlt />
+                    <span>تسجيل خروج</span>
+                  </button>
+                </>
+              ) : (
+                <NavLink 
+                  href="/auth/login" 
+                  mobile 
+                  className="bg-gradient-to-r from-primary to-primary-dark text-white hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center gap-2"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <FaSignInAlt />
+                  <span>تسجيل الدخول</span>
+                </NavLink>
+              )}
             </div>
           </div>
         </div>
@@ -150,9 +205,18 @@ interface NavLinkProps {
   children: React.ReactNode;
   isActive?: boolean;
   mobile?: boolean;
+  className?: string;
+  onClick?: () => void;
 }
 
-const NavLink = ({ href, children, isActive = false, mobile = false }: NavLinkProps) => {
+const NavLink = ({ 
+  href, 
+  children, 
+  isActive = false, 
+  mobile = false, 
+  className = '',
+  onClick
+}: NavLinkProps) => {
   const baseClasses = "transition-all duration-300 font-medium";
   
   const mobileClasses = mobile 
@@ -164,7 +228,11 @@ const NavLink = ({ href, children, isActive = false, mobile = false }: NavLinkPr
     : "text-[var(--text-primary)] hover:bg-[var(--bg-card)]/70 border border-[var(--border-light)]/20";
   
   return (
-    <Link href={href} className={`${baseClasses} ${mobileClasses} ${activeClasses}`}>
+    <Link 
+      href={href} 
+      className={`${baseClasses} ${mobileClasses} ${activeClasses} ${className}`}
+      onClick={onClick}
+    >
       {/* Hover effect for non-active links */}
       {!isActive && (
         <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-primary/10 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>

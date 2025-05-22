@@ -1,20 +1,35 @@
 import { createClient } from '@supabase/supabase-js';
-import { Database } from '../types/database';
 
-// These environment variables need to be set in a .env.local file
-// NEXT_PUBLIC_SUPABASE_URL=your-supabase-url
-// NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
+/**
+ * Supabase client configuration
+ * This creates a single client instance for the entire application
+ */
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+// Get environment variables
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
-// Create a single supabase client for the entire application
-export const supabase = createClient<Database>(supabaseUrl, supabaseAnonKey);
+// Validate environment variables
+if (!supabaseUrl || !supabaseAnonKey) {
+  console.error('Error: Missing Supabase environment variables');
+}
 
-// Helper function to handle errors
+// Create the Supabase client
+export const supabase = createClient(supabaseUrl || '', supabaseAnonKey || '', {
+  auth: {
+    persistSession: true,
+    autoRefreshToken: true,
+    detectSessionInUrl: true
+  }
+});
+
+/**
+ * Helper function to handle Supabase errors consistently
+ */
 export const handleSupabaseError = (error: any): string => {
   console.error('Supabase error:', error);
   
+  // Extract the most useful error message
   if (error.message) {
     return error.message;
   }

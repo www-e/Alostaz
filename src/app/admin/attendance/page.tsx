@@ -82,12 +82,19 @@ export default function AttendancePage() {
   
   // Fetch grades and tracks data
   useEffect(() => {
+    // Create a ref to track if the component is mounted
+    let isMounted = true;
+    
     const fetchGradesData = async () => {
       try {
-        setIsLoading(true);
+        // Set initial loading state
+        if (isMounted) setIsLoading(true);
         
         // Fetch grades and tracks
         const { gradesWithTracks, error } = await getGradesWithTracks();
+        
+        // Check if component is still mounted before updating state
+        if (!isMounted) return;
         
         if (error) {
           showToast.showErrorToast('خطأ في جلب بيانات الصفوف', error);
@@ -102,14 +109,19 @@ export default function AttendancePage() {
         }
       } catch (error) {
         console.error('Error fetching grades data:', error);
-        showToast.showErrorToast('خطأ غير متوقع', 'حدث خطأ أثناء جلب بيانات الصفوف');
+        if (isMounted) showToast.showErrorToast('خطأ غير متوقع', 'حدث خطأ أثناء جلب بيانات الصفوف');
       } finally {
-        setIsLoading(false);
+        if (isMounted) setIsLoading(false);
       }
     };
     
     fetchGradesData();
-  }, [showToast]);
+    
+    // Cleanup function to prevent state updates after unmount
+    return () => {
+      isMounted = false;
+    };
+  }, []); // Remove showToast from dependencies to prevent unnecessary rerenders
   
   // Fetch group days when grade/track selection changes
   useEffect(() => {
@@ -121,7 +133,7 @@ export default function AttendancePage() {
       }
       
       try {
-        setIsLoading(true);
+        // Don't set loading state here to avoid triggering other effects
         
         // Fetch group days for selected grade and track
         const { groupDays: fetchedGroupDays, error } = await getGroupDaysByGrade(
@@ -145,8 +157,6 @@ export default function AttendancePage() {
       } catch (error) {
         console.error('Error fetching group days:', error);
         showToast.showErrorToast('خطأ غير متوقع', 'حدث خطأ أثناء جلب بيانات المجموعات');
-      } finally {
-        setIsLoading(false);
       }
     };
     
@@ -162,7 +172,8 @@ export default function AttendancePage() {
       }
       
       try {
-        setIsLoading(true);
+        // Use a local loading state variable instead of the shared state
+        const localLoading = true;
         
         // Fetch students for selected group day
         const { students: fetchedStudents, error } = await getStudentsByGroupDay(selectedGroupDay);
@@ -176,8 +187,6 @@ export default function AttendancePage() {
       } catch (error) {
         console.error('Error fetching students:', error);
         showToast.showErrorToast('خطأ غير متوقع', 'حدث خطأ أثناء جلب بيانات الطلاب');
-      } finally {
-        setIsLoading(false);
       }
     };
     
@@ -186,20 +195,26 @@ export default function AttendancePage() {
   
   // Fetch attendance data when date or students change
   useEffect(() => {
+    // Create a ref to track if the component is mounted
+    let isMounted = true;
+    
     const fetchAttendanceData = async () => {
       if (selectedGroupDay === null || students.length === 0) {
-        setAttendanceData({});
+        if (isMounted) setAttendanceData({});
         return;
       }
       
       try {
-        setLoadingAttendance(true);
+        if (isMounted) setLoadingAttendance(true);
         
         // Format date for API
         const dateStr = formatDateForDB(selectedDate);
         
         // Fetch attendance data for selected group and date
         const { attendance, error } = await getGroupAttendance(selectedGroupDay, dateStr);
+        
+        // Check if component is still mounted before updating state
+        if (!isMounted) return;
         
         if (error) {
           showToast.showErrorToast('خطأ في جلب بيانات الحضور', error);
@@ -222,17 +237,22 @@ export default function AttendancePage() {
           }
         });
         
-        setAttendanceData(formattedData);
+        if (isMounted) setAttendanceData(formattedData);
       } catch (error) {
         console.error('Error fetching attendance data:', error);
-        showToast.showErrorToast('خطأ غير متوقع', 'حدث خطأ أثناء جلب بيانات الحضور');
+        if (isMounted) showToast.showErrorToast('خطأ غير متوقع', 'حدث خطأ أثناء جلب بيانات الحضور');
       } finally {
-        setLoadingAttendance(false);
+        if (isMounted) setLoadingAttendance(false);
       }
     };
     
     fetchAttendanceData();
-  }, [selectedDate, selectedGroupDay, students, showToast]);
+    
+    // Cleanup function to prevent state updates after unmount
+    return () => {
+      isMounted = false;
+    };
+  }, [selectedDate, selectedGroupDay, students.length]); // Use students.length instead of students array to prevent unnecessary rerenders
   
   // Handle grade selection change
   const handleGradeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {

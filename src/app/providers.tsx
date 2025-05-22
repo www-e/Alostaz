@@ -7,7 +7,7 @@ import rtl from 'stylis-plugin-rtl';
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 import { AuthProvider } from '@/lib/hooks/useAuth';
 
-// Create rtl cache
+// Create rtl cache for RTL support
 const rtlCache = createCache({
   key: 'muirtl',
   stylisPlugins: [rtl],

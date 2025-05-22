@@ -124,7 +124,7 @@ export default function LoginPage() {
             width={120} 
             height={120} 
             mb={4}
-            fallbackSrc="https://via.placeholder.com/120?text=الأستاذ"
+            fallbackSrc="/home-dark-alostaz.png"
           />
           <Heading 
             as="h1" 

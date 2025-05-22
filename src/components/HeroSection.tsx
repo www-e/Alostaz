@@ -60,6 +60,13 @@ const HeroSection = () => {
                   <span className="group-hover:scale-110 transition-transform duration-300">🎓</span>
                   <span>استكشف الصفوف</span>
                 </Link>
+                <Link 
+                  href="/auth/login" 
+                  className="bg-gradient-to-r from-accent to-accent-dark text-white px-6 py-3 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-accent/30 hover:translate-y-[-2px] flex items-center gap-2 group"
+                >
+                  <span className="group-hover:scale-110 transition-transform duration-300">🔒</span>
+                  <span>تسجيل الدخول</span>
+                </Link>
               </div>
             </div>
           </div>
