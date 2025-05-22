@@ -1,37 +1,50 @@
 /* Animations */
-@keyframes float {
-  0% {
-    transform: translateY(0) translateX(0);
-  }
-  25% {
-    transform: translateY(-10px) translateX(10px);
+
+/* Breathing animation */
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
   }
   50% {
-    transform: translateY(0) translateX(20px);
-  }
-  75% {
-    transform: translateY(10px) translateX(10px);
-  }
-  100% {
-    transform: translateY(0) translateX(0);
+    transform: scale(1.15);
+    opacity: 1;
   }
 }
 
-@keyframes float-slow {
+/* Floating animation with horizontal movement */
+@keyframes float {
   0% {
     transform: translateY(0) translateX(0) rotate(0deg);
   }
   33% {
-    transform: translateY(-15px) translateX(15px) rotate(5deg);
+    transform: translateY(-15px) translateX(10px) rotate(2deg);
   }
   66% {
-    transform: translateY(10px) translateX(-10px) rotate(-5deg);
+    transform: translateY(10px) translateX(-10px) rotate(-2deg);
   }
   100% {
     transform: translateY(0) translateX(0) rotate(0deg);
   }
 }
 
+/* Slower floating animation with different pattern */
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0) translateX(0) scale(1);
+  }
+  25% {
+    transform: translateY(-20px) translateX(5px) scale(1.05);
+  }
+  50% {
+    transform: translateY(0) translateX(10px) scale(1);
+  }
+  75% {
+    transform: translateY(10px) translateX(-5px) scale(0.95);
+  }
+}
+
+/* Glowing effect animation */
 @keyframes pulse-glow {
   0% {
     opacity: 0.4;
@@ -47,6 +60,7 @@
   }
 }
 
+/* Gradient background movement */
 @keyframes gradientMove {
   0% {
     background-position: 0% 0%;
@@ -56,23 +70,23 @@
   }
 }
 
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 10px var(--primary);
-  }
-  100% {
-    box-shadow: 0 0 25px var(--primary);
-  }
-}
-
+/* Animation utility classes */
 .animate-float {
-  animation: float 6s ease-in-out infinite;
+  animation: float 8s ease-in-out infinite;
 }
 
 .animate-float-slow {
-  animation: float-slow 15s ease-in-out infinite;
+  animation: float-slow 12s ease-in-out infinite;
+}
+
+.animate-breathe {
+  animation: breathe 6s ease-in-out infinite;
 }
 
 .animate-pulse-glow {
   animation: pulse-glow 4s ease-in-out infinite;
+}
+
+.animate-gradient {
+  animation: gradientMove 8s ease-in-out infinite alternate;
 }

@@ -4,7 +4,7 @@ import { FaSquareRootAlt, FaInfinity, FaChartLine } from 'react-icons/fa';
 
 const HeroSection = () => {
   return (
-    <section id="home" className="relative min-h-screen pt-24 pb-16 bg-gradient-to-br from-[var(--bg-primary)] to-[var(--bg-secondary)] dark:from-[var(--bg-primary)] dark:to-[var(--bg-secondary)] overflow-hidden">
+    <section id="home" className="relative min-h-[calc(100vh-80px)] pt-12 pb-16 md:pt-20 md:pb-20 bg-gradient-to-br from-[var(--bg-primary)] to-[var(--bg-secondary)] dark:from-[var(--bg-primary)] dark:to-[var(--bg-secondary)] overflow-hidden hero-section">
       {/* Background shapes */}
       <div className="absolute inset-0 overflow-hidden -z-10">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[100px] animate-pulse-glow"></div>
@@ -22,22 +22,14 @@ const HeroSection = () => {
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12 h-[calc(100vh-120px)]">
+        <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12 min-h-[calc(100vh-200px)] py-1 lg:py-0 lg:h-[calc(100vh-200px)]">
           {/* Hero Content */}
           <div className="w-full lg:w-1/2 text-center lg:text-right">
             <div className="backdrop-blur-sm bg-[var(--bg-card)]/10 p-8 rounded-2xl border border-[var(--border-light)]/20 shadow-lg transform transition-all duration-500 hover:translate-y-[-5px] hover:shadow-xl">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary-light to-secondary">
-                <span className="inline-block animate-float" style={{ animationDelay: '0s' }}>أ</span>
-                <span className="inline-block animate-float" style={{ animationDelay: '0.1s' }}>/</span>
-                <span className="inline-block animate-float" style={{ animationDelay: '0.2s' }}> </span>
-                <span className="inline-block animate-float" style={{ animationDelay: '0.3s' }}>أ</span>
-                <span className="inline-block animate-float" style={{ animationDelay: '0.4s' }}>ش</span>
-                <span className="inline-block animate-float" style={{ animationDelay: '0.5s' }}>ر</span>
-                <span className="inline-block animate-float" style={{ animationDelay: '0.6s' }}>ف</span>
-                <span className="inline-block animate-float" style={{ animationDelay: '0.7s' }}> </span>
-                <span className="inline-block animate-float" style={{ animationDelay: '0.8s' }}>ح</span>
-                <span className="inline-block animate-float" style={{ animationDelay: '0.9s' }}>س</span>
-                <span className="inline-block animate-float" style={{ animationDelay: '1.0s' }}>ن</span>
+              <h1 className="text-5xl md:text-6xl font-extrabold mb-6 font-sans">
+                <span className="hero-title whitespace-nowrap bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 dark:from-blue-400 dark:via-purple-400 dark:to-blue-600">
+                  أ/ أشرف حسن
+                </span>
               </h1>
               <p className="text-2xl md:text-3xl mb-6 text-[var(--text-secondary)] dark:text-[var(--text-secondary)]">
                 الأستاذ في الرياضيات للمرحلة الثانوية
@@ -73,29 +65,29 @@ const HeroSection = () => {
           </div>
           
           {/* Hero Image */}
-          <div className="w-full lg:w-1/2 flex justify-center items-center">
-            <div className="relative w-72 h-72 md:w-96 md:h-96">
-              {/* Profile Image */}
-              <div className="hero-image-clip">
+          <div className="w-full lg:w-[45%] flex justify-center items-center mt-6 lg:mt-0 hero-content">
+            <div className="relative w-full max-w-xs md:max-w-md">
+              {/* Profile Image Container */}
+              <div className="relative w-full pb-[120%] rounded-3xl overflow-hidden shadow-2xl transform transition-all duration-500 hover:scale-105 hero-image-container">
                 <Image 
                   src="/assets/images/Alostaz_Hero_photo.webp" 
                   alt="أ/ أشرف حسن"
-                  width={400}
-                  height={400}
-                  className="w-full h-full object-cover"
+                  fill
+                  sizes="(max-width: 768px) 90vw, (max-width: 1024px) 40vw, 35vw"
+                  className="object-cover object-top"
                   priority
                 />
               </div>
               
               {/* Decorative elements */}
-              <div className="decoration-item item-1">
-                <FaSquareRootAlt />
+              <div className="absolute -top-4 -right-4 w-16 h-16 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm flex items-center justify-center shadow-lg border border-white/20 animate-breathe" style={{ animationDuration: '6s' }}>
+                <FaSquareRootAlt className="text-primary text-2xl" />
               </div>
-              <div className="decoration-item item-2">
-                <FaInfinity />
+              <div className="absolute -bottom-4 -left-4 w-16 h-16 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm flex items-center justify-center shadow-lg border border-white/20 animate-float-slow" style={{ animationDuration: '14s' }}>
+                <FaInfinity className="text-secondary text-2xl" />
               </div>
-              <div className="decoration-item item-3">
-                <FaChartLine />
+              <div className="absolute -bottom-4 -right-4 w-16 h-16 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm flex items-center justify-center shadow-lg border border-white/20 animate-float" style={{ animationDuration: '10s' }}>
+                <FaChartLine className="text-accent text-2xl" />
               </div>
             </div>
           </div>

@@ -1,207 +1,8 @@
 'use client';
 
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FaIdCard, FaQrcode, FaClock, FaChartLine, FaUserCheck, FaBookReader, FaTasks } from 'react-icons/fa';
-
-const AboutSection = () => {
-  const [isFlipped, setIsFlipped] = useState(false);
-
-  return (
-    <section id="about" className="py-20 bg-gradient-to-br from-[var(--bg-secondary)] to-[var(--bg-primary)] dark:from-[var(--bg-secondary)] dark:to-[var(--bg-primary)] relative overflow-hidden">
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 -z-10 opacity-20">
-        <div className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent"></div>
-        <div className="absolute left-0 right-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent"></div>
-        <div className="absolute -left-20 top-1/3 w-80 h-80 bg-primary/20 rounded-full blur-[80px]"></div>
-        <div className="absolute -right-20 bottom-1/3 w-80 h-80 bg-secondary/20 rounded-full blur-[80px]"></div>
-      </div>
-      
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary-light to-secondary">المركز التعليمي</h2>
-          <div className="w-24 h-1 mx-auto my-4 bg-gradient-to-r from-primary-light via-secondary to-primary-light rounded-full"></div>
-          <p className="text-xl text-[var(--text-secondary)] dark:text-[var(--text-secondary)] max-w-2xl mx-auto">نظام تعليمي متكامل للمرحلة الثانوية يساعد الطلاب على تحقيق أفضل النتائج</p>
-        </div>
-
-        {/* Student ID Card Section */}
-        <div className="flex flex-col lg:flex-row items-center gap-12 mb-20 bg-[var(--bg-card)]/30 backdrop-blur-sm p-8 rounded-2xl border border-[var(--border-light)]/20 shadow-lg">
-          <div className="w-full lg:w-1/2">
-            <div className="transform transition-all duration-500 hover:translate-y-[-5px]">
-              <h3 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary mb-4">بطاقة الطالب الذكية</h3>
-              <p className="text-[var(--text-secondary)] dark:text-[var(--text-secondary)] mb-8 leading-relaxed">نظام متكامل لمتابعة حضور وأداء الطلاب مع تقارير دورية للأهل</p>
-              <ul className="space-y-5">
-                {[
-                  { icon: <FaIdCard />, text: 'بطاقة تعريف شخصية لكل طالب' },
-                  { icon: <FaQrcode />, text: 'نظام باركود للحضور اليومي' },
-                  { icon: <FaClock />, text: 'تسجيل وقت الحضور والانصراف' },
-                  { icon: <FaChartLine />, text: 'متابعة مستوى التقدم والأداء' },
-                ].map((item, index) => (
-                  <li key={index} className="flex items-center gap-4 group transition-all duration-300 hover:translate-x-2">
-                    <span className="w-10 h-10 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 dark:from-primary/30 dark:to-primary/10 flex items-center justify-center text-primary dark:text-primary-light text-lg transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 group-hover:shadow-lg group-hover:shadow-primary/20">
-                      {item.icon}
-                    </span>
-                    <span className="text-[var(--text-primary)] dark:text-[var(--text-primary)] group-hover:text-primary dark:group-hover:text-primary-light transition-colors duration-300">{item.text}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-          
-          <div className="w-full lg:w-1/2">
-            <div className="perspective-1000 relative">
-              {/* Decorative elements */}
-              <div className="absolute -top-4 -right-4 w-20 h-20 bg-primary/10 rounded-full blur-xl animate-pulse-glow z-0"></div>
-              <div className="absolute -bottom-4 -left-4 w-20 h-20 bg-secondary/10 rounded-full blur-xl animate-pulse-glow z-0" style={{ animationDelay: '1s' }}></div>
-              
-              <div 
-                className={`relative w-full aspect-[1.586] transition-transform duration-700 transform-style-3d ${isFlipped ? 'rotate-y-180' : ''} shadow-2xl hover:shadow-primary/20 z-10`}
-                style={{ transformStyle: 'preserve-3d' }}
-                onClick={() => setIsFlipped(!isFlipped)}
-              >
-                {/* Card Front */}
-                <div 
-                  className="absolute inset-0 backface-hidden rounded-2xl overflow-hidden border-4 border-[var(--primary)]/30"
-                  style={{ backfaceVisibility: 'hidden' }}
-                >
-                  <Image 
-                    src="/assets/images/student-card-front.webp" 
-                    alt="بطاقة الطالب الأمامية" 
-                    width={400} 
-                    height={252}
-                    className="w-full h-auto"
-                    unoptimized
-                  />
-                </div>
-                
-                {/* Card Back */}
-                <div 
-                  className="absolute inset-0 backface-hidden rotate-y-180 rounded-2xl overflow-hidden border-4 border-[var(--primary)]/30"
-                  style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
-                >
-                  <Image 
-                    src="/assets/images/student-card-back.webp" 
-                    alt="بطاقة الطالب الخلفية" 
-                    width={400} 
-                    height={252}
-                    className="w-full h-auto"
-                    unoptimized
-                  />
-                </div>
-              </div>
-              
-              <div className="text-center mt-6 text-[var(--text-secondary)] dark:text-[var(--text-secondary)]">
-                <p className="text-sm">انقر على البطاقة لعرض {isFlipped ? 'الوجه الأمامي' : 'الوجه الخلفي'}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Attendance System */}
-        <div className="flex flex-col-reverse lg:flex-row items-center gap-12 mb-20 bg-[var(--bg-card)]/30 backdrop-blur-sm p-8 rounded-2xl border border-[var(--border-light)]/20 shadow-lg">
-          <div className="w-full lg:w-1/2">
-            <div className="transform transition-all duration-500 hover:translate-y-[-5px] space-y-6">
-              <h3 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-secondary to-primary mb-6">نظام الإشعارات الذكي</h3>
-              
-              <div className="bg-[var(--bg-card)] dark:bg-[var(--bg-card)] rounded-xl p-5 shadow-lg border border-[var(--border-light)] hover:border-green-500/30 transition-all duration-300 hover:shadow-green-500/10 hover:shadow-lg group">
-                <div className="flex items-center gap-4 mb-3">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-green-500/20 to-green-600/10 flex items-center justify-center transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 group-hover:shadow-lg group-hover:shadow-green-500/20">
-                    <span className="text-green-600 dark:text-green-400 text-xl">✓</span>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-[var(--text-primary)] dark:text-[var(--text-primary)] group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors duration-300">إشعار حضور</h4>
-                    <p className="text-sm text-[var(--text-secondary)] dark:text-[var(--text-secondary)]">اليوم 10:30 صباحاً</p>
-                  </div>
-                </div>
-                <p className="text-[var(--text-secondary)] dark:text-[var(--text-secondary)] mt-2 leading-relaxed">
-                  تم تسجيل حضور الطالب أحمد محمد في حصة الرياضيات للصف الثاني الثانوي وبدء المحاضرة في الموعد المحدد
-                </p>
-              </div>
-              
-              <div className="bg-[var(--bg-card)] dark:bg-[var(--bg-card)] rounded-xl p-5 shadow-lg border border-[var(--border-light)] hover:border-red-500/30 transition-all duration-300 hover:shadow-red-500/10 hover:shadow-lg group">
-                <div className="flex items-center gap-4 mb-3">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-red-500/20 to-red-600/10 flex items-center justify-center transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 group-hover:shadow-lg group-hover:shadow-red-500/20">
-                    <span className="text-red-600 dark:text-red-400 text-xl">✗</span>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-[var(--text-primary)] dark:text-[var(--text-primary)] group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors duration-300">إشعار غياب</h4>
-                    <p className="text-sm text-[var(--text-secondary)] dark:text-[var(--text-secondary)]">اليوم 4:30 مساءً</p>
-                  </div>
-                </div>
-                <p className="text-[var(--text-secondary)] dark:text-[var(--text-secondary)] mt-2 leading-relaxed">
-                  السلام عليكم، نود إبلاغكم أن الطالب قد تغيب اليوم عن الحصة في الموعد المحدد 4:30 مساءً، كود الطالب std-1339
-                </p>
-                <p className="text-[var(--text-secondary)] dark:text-[var(--text-secondary)] mt-2">
-                  حصة الرياضيات - الصف الثاني الثانوي
-                </p>
-              </div>
-            </div>
-          </div>
-          
-          <div className="w-full lg:w-1/2">
-            <div className="transform transition-all duration-500 hover:translate-y-[-5px]">
-              <h3 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-secondary to-primary mb-8">نظام الحضور والمتابعة</h3>
-              <p className="text-[var(--text-secondary)] dark:text-[var(--text-secondary)] mb-8 leading-relaxed">نظام متكامل لمتابعة حضور الطلاب والاشتراكات والواجبات مع تقارير دورية للأهل ومتابعة مستمرة للمستوى</p>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                {[
-                  { icon: <FaUserCheck />, title: 'الحضور', desc: 'متابعة يومية مع إشعارات فورية للأهل' },
-                  { icon: <FaBookReader />, title: 'الاشتراك', desc: 'متابعة شهرية وتذكير قبل انتهاء الاشتراك' },
-                  { icon: <FaTasks />, title: 'الواجبات', desc: 'متابعة أسبوعية وتقييم مستمر للمستوى' },
-                ].map((item, index) => (
-                  <div key={index} className="bg-[var(--bg-card)] dark:bg-[var(--bg-card)] p-6 rounded-xl shadow-lg border border-[var(--border-light)] hover:border-primary/30 transition-all duration-500 hover:shadow-xl text-center group hover:transform hover:-translate-y-2">
-                    <div className="w-16 h-16 mx-auto rounded-full bg-gradient-to-br from-primary/20 to-primary/5 dark:from-primary/30 dark:to-primary/10 flex items-center justify-center text-primary dark:text-primary-light text-2xl mb-4 transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 group-hover:shadow-lg group-hover:shadow-primary/20">
-                      {item.icon}
-                    </div>
-                    <h4 className="font-bold text-lg mb-2 text-[var(--text-primary)] dark:text-[var(--text-primary)] group-hover:text-primary dark:group-hover:text-primary-light transition-colors duration-300">{item.title}</h4>
-                    <p className="text-[var(--text-secondary)] dark:text-[var(--text-secondary)]">{item.desc}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Books Section */}
-        <div className="mb-16 bg-[var(--bg-card)]/30 backdrop-blur-sm p-8 rounded-2xl border border-[var(--border-light)]/20 shadow-lg">
-          <div className="text-center mb-10">
-            <h3 className="text-3xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary-light to-secondary">الكتب والمذكرات</h3>
-            <div className="w-24 h-1 mx-auto my-4 bg-gradient-to-r from-primary-light via-secondary to-primary-light rounded-full"></div>
-            <p className="text-xl text-[var(--text-secondary)] dark:text-[var(--text-secondary)] max-w-2xl mx-auto">مذكرات وكتب متخصصة لجميع المراحل الدراسية مع شرح مبسط وتمارين متنوعة</p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* First Grade Book */}
-            <BookCard 
-              imageSrc="/assets/images/BookCoverGrade1.webp"
-              title="الصف الأول الثانوي"
-              description="الرياضيات عام"
-            />
-            
-            {/* Second Grade Books */}
-            <BookCard 
-              imageSrc="/assets/images/BookCoverGrade2.webp"
-              title="الصف الثاني الثانوي"
-              description="الرياضيات التطبيقية"
-            />
-            
-            <BookCard 
-              imageSrc="/assets/images/BookCoverGrade2scintific.webp"
-              title="الصف الثاني الثانوي"
-              description="الرياضيات البحتة"
-            />
-            
-            {/* Third Grade Book */}
-            <BookCard 
-              imageSrc="/assets/images/BookCoverGrade3.webp"
-              title="الصف الثالث الثانوي"
-              description="الرياضيات للثانوية"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
 
 interface BookCardProps {
   imageSrc: string;
@@ -211,30 +12,383 @@ interface BookCardProps {
 
 const BookCard = ({ imageSrc, title, description }: BookCardProps) => {
   return (
-    <div className="group relative overflow-hidden rounded-2xl shadow-lg transition-all duration-500 hover:shadow-xl hover:shadow-primary/20 hover:-translate-y-2 border border-[var(--border-light)] hover:border-primary/30">
-      {/* Decorative elements */}
-      <div className="absolute -top-10 -right-10 w-20 h-20 bg-primary/10 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0"></div>
-      <div className="absolute -bottom-10 -left-10 w-20 h-20 bg-secondary/10 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0" style={{ transitionDelay: '200ms' }}></div>
-      
-      <div className="aspect-[3/4] w-full relative z-10">
+    <div className="relative group bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-2xl overflow-hidden shadow-lg border border-gray-200/20 dark:border-gray-700/20 transition-all duration-500 hover:shadow-xl hover:-translate-y-2 hover:border-blue-500/30 flex flex-col h-full">
+      {/* Book Cover Image */}
+      <div className="relative w-full pt-[140%] overflow-hidden">
         <Image 
           src={imageSrc} 
           alt={title} 
-          width={300} 
-          height={400}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 rounded-2xl"
-          unoptimized
+          fill
+          className="object-cover transition-transform duration-700 group-hover:scale-105"
+          sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+          loading="lazy"
         />
       </div>
       
-      <div className="absolute inset-0 bg-gradient-to-t from-[var(--primary-dark)]/90 via-[var(--primary)]/50 to-transparent flex flex-col justify-end p-6 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-500 z-20">
-        <h4 className="text-2xl font-bold text-white mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">{title}</h4>
-        <p className="text-white/90 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500" style={{ transitionDelay: '100ms' }}>{description}</p>
-        <button className="mt-4 bg-white/20 backdrop-blur-sm text-white py-2 px-4 rounded-lg border border-white/30 hover:bg-white/30 transition-all duration-300 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100" style={{ transitionDelay: '200ms' }}>
-          عرض التفاصيل
-        </button>
+      {/* Content */}
+      <div className="p-6 flex flex-col flex-grow">
+        <h4 className="font-bold text-xl text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 text-center">
+          {title}
+        </h4>
+        
+        <p className="text-gray-600 dark:text-gray-400 text-base mb-6 text-center flex-grow">
+          {description}
+        </p>
+        
+        <div className="mt-auto">
+          <div className="flex justify-between items-center bg-gray-50 dark:bg-gray-800/50 p-3 rounded-lg">
+            <span className="text-xs px-3 py-1.5 bg-blue-500/10 text-blue-600 dark:text-blue-400 rounded-full">
+              متوفر للتحميل
+            </span>
+            <button className="text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors flex items-center gap-2 group-hover:gap-3 duration-300">
+              عرض التفاصيل
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 rtl:rotate-180 transition-transform group-hover:translate-x-1 duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </button>
+          </div>
+        </div>
       </div>
+      
+      {/* Hover effect border */}
+      <div className="absolute inset-0 border-2 border-blue-500/0 group-hover:border-blue-500/30 rounded-2xl pointer-events-none transition-all duration-500"></div>
     </div>
+  );
+};
+
+const AboutSection = () => {
+  const [isFlipped, setIsFlipped] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+
+  // Intersection Observer for scroll animations
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    const target = document.querySelector('#about');
+    if (target) observer.observe(target);
+
+    return () => {
+      if (target) observer.unobserve(target);
+    };
+  }, []);
+
+  return (
+    <section 
+      id="about" 
+      className={`py-16 md:py-24 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 relative overflow-hidden transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0 translate-y-10'}`}
+    >
+      {/* Animated background elements */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute inset-0 bg-[url('/assets/images/grid-pattern.svg')] opacity-[0.03] bg-center"></div>
+        <div className="absolute top-20 -left-20 w-64 h-64 bg-blue-500/10 rounded-full filter blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 -right-20 w-72 h-72 bg-purple-500/10 rounded-full filter blur-3xl animate-pulse"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-64 bg-gradient-to-r from-blue-500/5 to-purple-500/5 rounded-full filter blur-3xl"></div>
+      </div>
+      
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="text-center mb-20 max-w-4xl mx-auto relative">
+          <span className="absolute -top-4 left-1/2 -translate-x-1/2 text-6xl font-bold text-blue-500/10 dark:text-blue-500/20">
+            التعليم
+          </span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-blue-500 to-purple-600 relative">
+            <span className="relative z-10 inline-block">
+              المركز التعليمي
+              <span className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></span>
+            </span>
+          </h2>
+          <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 leading-relaxed">
+            نظام تعليمي متكامل للمرحلة الثانوية مصمم لمساعدة الطلاب على تحقيق أقصى استفادة من قدراتهم
+          </p>
+        </div>
+
+        {/* Student ID Card Section */}
+        <div className={`relative overflow-hidden group flex flex-col lg:flex-row items-center gap-12 mb-24 bg-white/30 dark:bg-gray-800/30 backdrop-blur-sm p-8 rounded-2xl border border-gray-200/20 dark:border-gray-700/20 shadow-lg transform transition-all duration-700 hover:shadow-xl hover:shadow-blue-500/10 hover:-translate-y-1 ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}>
+          {/* Decorative elements */}
+          <div className="absolute -top-10 -right-10 w-40 h-40 bg-blue-500/5 rounded-full filter blur-3xl group-hover:scale-150 transition-transform duration-1000"></div>
+          <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-purple-500/5 rounded-full filter blur-3xl group-hover:scale-150 transition-transform duration-1000"></div>
+          <div className="w-full lg:w-1/2 relative z-10">
+            <div className="transform transition-all duration-700 hover:translate-y-[-5px]">
+              <div className="inline-flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center text-white text-xl">
+                  <FaIdCard />
+                </div>
+                <h3 className="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">بطاقة الطالب الذكية</h3>
+              </div>
+              <p className="text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">نظام متكامل لمتابعة حضور وأداء الطلاب مع تقارير دورية للأهل</p>
+              <ul className="space-y-5">
+                {[
+                  { 
+                    icon: <FaIdCard />, 
+                    text: 'بطاقة تعريف شخصية لكل طالب',
+                    color: 'from-blue-500 to-cyan-500'
+                  },
+                  { 
+                    icon: <FaQrcode />, 
+                    text: 'نظام باركود للحضور اليومي',
+                    color: 'from-green-500 to-emerald-500'
+                  },
+                  { 
+                    icon: <FaClock />, 
+                    text: 'تسجيل وقت الحضور والانصراف',
+                    color: 'from-amber-500 to-yellow-500'
+                  },
+                  { 
+                    icon: <FaChartLine />, 
+                    text: 'متابعة مستوى التقدم والأداء',
+                    color: 'from-purple-500 to-pink-500'
+                  },
+                ].map((item, index) => (
+                  <li 
+                    key={index} 
+                    className="flex items-center gap-4 group transition-all duration-300 hover:translate-x-2"
+                  >
+                    <span className={`w-12 h-12 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center text-white text-lg transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-lg`}>
+                      {item.icon}
+                    </span>
+                    <span className="text-gray-900 dark:text-white text-lg font-medium transition-colors duration-300 group-hover:text-blue-600 dark:group-hover:text-blue-400">
+                      {item.text}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          
+          <div className="w-full lg:w-1/2">
+            <div className="relative">
+              {/* Decorative elements */}
+              <div className="absolute -top-4 -right-4 w-20 h-20 bg-blue-500/10 rounded-full blur-xl animate-pulse z-0"></div>
+              <div className="absolute -bottom-4 -left-4 w-20 h-20 bg-purple-500/10 rounded-full blur-xl animate-pulse z-0" style={{ animationDelay: '1s' }}></div>
+              
+              <div className="relative w-full max-w-4xl mx-auto perspective-1000">
+                <div 
+                  className={`relative w-full h-full transition-transform duration-700 ease-in-out ${isFlipped ? 'rotate-y-180' : ''}`}
+                  style={{ 
+                    transformStyle: 'preserve-3d',
+                    transformOrigin: 'center center',
+                    cursor: 'pointer',
+                    height: 'auto',
+                    paddingTop: '63.06%' /* 1/1.586 ≈ 0.6306 */
+                  }}
+                  onClick={() => setIsFlipped(!isFlipped)}
+                >
+                  {/* Card Front */}
+                  <div 
+                    className="absolute inset-0 rounded-2xl overflow-hidden border-4 border-white/20 shadow-2xl hover:shadow-blue-500/20"
+                    style={{ 
+                      backfaceVisibility: 'hidden',
+                      WebkitBackfaceVisibility: 'hidden',
+                      transform: 'rotateY(0deg)'
+                    }}
+                  >
+                    <div className="absolute inset-0 w-full h-full">
+                      <Image 
+                        src="/assets/images/student-card-front.webp" 
+                        alt="بطاقة الطالب الأمامية" 
+                        fill
+                        sizes="(max-width: 768px) 95vw, (max-width: 1024px) 85vw, 60vw"
+                        className="object-contain"
+                        priority
+                      />
+                    </div>
+                  </div>
+                  
+                  {/* Card Back */}
+                  <div 
+                    className="absolute inset-0 rounded-2xl overflow-hidden border-4 border-white/20 shadow-2xl hover:shadow-blue-500/20"
+                    style={{ 
+                      backfaceVisibility: 'hidden',
+                      WebkitBackfaceVisibility: 'hidden',
+                      transform: 'rotateY(180deg)'
+                    }}
+                  >
+                    <div className="absolute inset-0 w-full h-full">
+                      <div className="relative w-full h-full">
+                        <Image 
+                          src="/assets/images/student-card-back.webp" 
+                          alt="بطاقة الطالب الخلفية" 
+                          fill
+                          sizes="(max-width: 768px) 90vw, (max-width: 1024px) 40vw, 30vw"
+                          className="object-contain"
+                          priority
+                          style={{ objectFit: 'contain' }}
+                        />
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              
+              <div className="text-center mt-6 text-gray-600 dark:text-gray-400">
+                <p className="text-sm">انقر على البطاقة لعرض {isFlipped ? 'الوجه الأمامي' : 'الوجه الخلفي'}</p>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Attendance System */}
+        <div className={`relative overflow-hidden mt-32 mb-32 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} transition-all duration-1000 delay-200`}>
+          <div className="absolute -top-32 -left-32 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+          
+          <div className="relative z-10 flex flex-col-reverse lg:flex-row items-center gap-12 bg-white/30 dark:bg-gray-800/30 backdrop-blur-sm p-8 rounded-2xl border border-gray-200/20 dark:border-gray-700/20 shadow-xl transform transition-all duration-700 hover:shadow-2xl hover:shadow-purple-500/10">
+            <div className="w-full lg:w-1/2">
+              <div className="space-y-8">
+                <div className="inline-flex items-center gap-3 mb-6">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center text-white text-xl">
+                    <FaUserCheck />
+                  </div>
+                  <h3 className="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-600">نظام الإشعارات الذكي</h3>
+                </div>
+                
+                <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-2xl p-6 shadow-lg border border-green-500/20 transition-all duration-500 hover:shadow-green-500/10 hover:border-green-500/40 group">
+                  <div className="flex items-start gap-4">
+                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-green-500/20 to-green-600/10 flex-shrink-0 flex items-center justify-center transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-lg group-hover:shadow-green-500/20">
+                      <span className="text-2xl text-green-500">✓</span>
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-3">
+                        <h4 className="font-bold text-lg text-gray-900 dark:text-white group-hover:text-green-500 transition-colors duration-300">إشعار حضور</h4>
+                        <span className="text-xs px-2 py-1 bg-green-500/10 text-green-500 rounded-full">اليوم 10:30 صباحاً</span>
+                      </div>
+                      <p className="mt-2 text-gray-600 dark:text-gray-400 leading-relaxed">
+                        تم تسجيل حضور الطالب أحمد محمد في حصة الرياضيات للصف الثاني الثانوي وبدء المحاضرة في الموعد المحدد
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-2xl p-6 shadow-lg border border-red-500/20 transition-all duration-500 hover:shadow-red-500/10 hover:border-red-500/40 group">
+                  <div className="flex items-start gap-4">
+                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-red-500/20 to-red-600/10 flex-shrink-0 flex items-center justify-center transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-lg group-hover:shadow-red-500/20">
+                      <span className="text-2xl text-red-500">✗</span>
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-3">
+                        <h4 className="font-bold text-lg text-gray-900 dark:text-white group-hover:text-red-500 transition-colors duration-300">إشعار غياب</h4>
+                        <span className="text-xs px-2 py-1 bg-red-500/10 text-red-500 rounded-full">اليوم 4:30 مساءً</span>
+                      </div>
+                      <p className="mt-2 text-gray-600 dark:text-gray-400 leading-relaxed">
+                        السلام عليكم، نود إبلاغكم أن الطالب قد تغيب اليوم عن الحصة في الموعد المحدد 4:30 مساءً، كود الطالب std-1339
+                      </p>
+                      <div className="mt-2 px-3 py-1.5 bg-gradient-to-r from-red-500/5 to-transparent border-r-2 border-red-500/30 text-sm text-red-500 rounded">
+                        حصة الرياضيات - الصف الثاني الثانوي
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="w-full lg:w-1/2">
+              <div className="space-y-8">
+                <div>
+                  <h3 className="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-600 mb-6">نظام الحضور والمتابعة</h3>
+                  <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed mb-8">
+                    نظام متكامل لمتابعة حضور الطلاب والاشتراكات والواجبات مع تقارير دورية للأهل ومتابعة مستمرة للمستوى
+                  </p>
+                </div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-5">
+                  {[
+                    { 
+                      icon: <FaUserCheck className="text-white" />, 
+                      title: 'الحضور', 
+                      desc: 'متابعة يومية مع إشعارات فورية للأهل',
+                      gradient: 'from-blue-500 to-cyan-500'
+                    },
+                    { 
+                      icon: <FaBookReader className="text-white" />, 
+                      title: 'الاشتراك', 
+                      desc: 'متابعة شهرية وتذكير قبل انتهاء الاشتراك',
+                      gradient: 'from-purple-500 to-pink-500'
+                    },
+                    { 
+                      icon: <FaTasks className="text-white" />, 
+                      title: 'الواجبات', 
+                      desc: 'متابعة أسبوعية وتقييم مستمر للمستوى',
+                      gradient: 'from-amber-500 to-orange-500'
+                    },
+                  ].map((item, index) => (
+                    <div 
+                      key={index} 
+                      className="group bg-gradient-to-br from-gray-100/50 to-transparent dark:from-gray-800/50 dark:to-transparent p-5 rounded-xl border border-gray-200/20 dark:border-gray-700/20 backdrop-blur-sm transition-all duration-500 hover:shadow-lg hover:-translate-y-1"
+                    >
+                      <div className="flex items-start gap-4">
+                        <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${item.gradient} flex items-center justify-center flex-shrink-0 transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-3`}>
+                          {item.icon}
+                        </div>
+                        <div>
+                          <h4 className="font-bold text-lg text-gray-900 dark:text-white mb-1">{item.title}</h4>
+                          <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">{item.desc}</p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Books Section */}
+        <div className={`relative overflow-hidden mt-32 mb-32 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} transition-all duration-1000 delay-300`}>
+          <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-96 h-96 bg-gradient-to-r from-blue-500/5 to-purple-500/5 rounded-full blur-3xl"></div>
+          
+          <div className="relative z-10">
+            <div className="text-center mb-16 max-w-4xl mx-auto relative pt-6">
+              <h3 className="text-4xl md:text-5xl font-bold mb-6 relative">
+                <span className="relative z-10 inline-block bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-blue-500 to-purple-600">
+                  الكتب والمذكرات
+                </span>
+                <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></span>
+              </h3>
+              <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
+                مذكرات وكتب متخصصة لجميع المراحل الدراسية مع شرح مبسط وتمارين متنوعة تغطي جميع أجزاء المنهج
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {/* First Grade Book */}
+              <BookCard 
+                imageSrc="/assets/images/BookCoverGrade1.webp"
+                title="الصف الأول الثانوي"
+                description="الرياضيات عام"
+              />
+              
+              {/* Second Grade Books */}
+              <BookCard 
+                imageSrc="/assets/images/BookCoverGrade2.webp"
+                title="الصف الثاني الثانوي"
+                description="الرياضيات التطبيقية"
+              />
+              
+              <BookCard 
+                imageSrc="/assets/images/BookCoverGrade2scintific.webp"
+                title="الصف الثاني الثانوي"
+                description="الرياضيات البحتة"
+              />
+              
+              {/* Third Grade Book */}
+              <BookCard 
+                imageSrc="/assets/images/BookCoverGrade3.webp"
+                title="الصف الثالث الثانوي"
+                description="الرياضيات للثانوية"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
 

@@ -93,9 +93,6 @@ const Navbar = () => {
             <Link href="/" className="relative group">
               <div className="absolute -inset-2 bg-gradient-to-r from-primary to-secondary rounded-lg opacity-0 group-hover:opacity-20 blur-md transition-all duration-500"></div>
               <div className="relative flex items-center gap-3">
-                <div className="w-10 h-10 flex items-center justify-center bg-gradient-to-br from-primary to-secondary rounded-full text-white font-bold text-lg shadow-md">
-                  أ
-                </div>
                 <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
                   أشرف حسن
                 </span>

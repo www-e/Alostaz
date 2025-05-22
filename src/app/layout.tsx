@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: 'مركز أ/ أشرف حسن للرياضيات',
   description: 'مركز تعليمي متخصص في تدريس الرياضيات للمرحلة الثانوية. خبرة 20 عاماً، نتائج متميزة، ومذكرات شرح حصرية.',
   icons: {
-    icon: '/assets/icons/edu.ico',
+    icon: '/assets/favicon/edu.ico',
   },
 };
 
