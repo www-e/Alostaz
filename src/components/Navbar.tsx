@@ -125,6 +125,12 @@ const Navbar = () => {
                 <NavLink href="/#courses" isActive={activeLink === '#courses'}>الصفوف الدراسية</NavLink>
                 <NavLink href="/#contact" isActive={activeLink === '#contact'}>تواصل معي</NavLink>
                 <NavLink href="/schedule" isActive={activeLink === '/schedule'}>المواعيد</NavLink>
+                <Link 
+                  href="/login" 
+                  className="px-4 py-2 rounded-xl bg-gradient-to-r from-primary to-secondary text-white font-medium hover:opacity-90 transition-opacity duration-300 shadow-md hover:shadow-lg"
+                >
+                  تسجيل الدخول
+                </Link>
               </div>
             </div>
           </div>
@@ -137,6 +143,12 @@ const Navbar = () => {
               <NavLink href="/#courses" isActive={activeLink === '#courses'} mobile>الصفوف الدراسية</NavLink>
               <NavLink href="/#contact" isActive={activeLink === '#contact'} mobile>تواصل معي</NavLink>
               <NavLink href="/schedule" isActive={activeLink === '/schedule'} mobile>المواعيد</NavLink>
+              <Link 
+                href="/login" 
+                className="px-4 py-3 rounded-xl bg-gradient-to-r from-primary to-secondary text-white font-medium hover:opacity-90 transition-opacity duration-300 shadow-md hover:shadow-lg text-center"
+              >
+                تسجيل الدخول
+              </Link>
             </div>
           </div>
         </div>

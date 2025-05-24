@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { FaBook, FaTasks, FaGraduationCap } from 'react-icons/fa';
+import SignInCta from '@/components/ui/SignInCta';
 
 export const metadata: Metadata = {
   title: 'الصف الأول الثانوي - أ/ أشرف حسن',
@@ -66,6 +67,16 @@ export default function Grade1() {
               <SubjectCard key={subject.id} subject={subject} />
             ))}
           </div>
+        </div>
+      </section>
+      
+      {/* Sign In CTA Section */}
+      <section className="py-16 bg-gradient-to-br from-[var(--bg-primary)] to-[var(--bg-secondary)] dark:from-[var(--bg-primary)] dark:to-[var(--bg-secondary)]">
+        <div className="container mx-auto px-4">
+          <SignInCta 
+            title="هل أنت طالب مسجل في الصف الأول الثانوي؟"
+            description="سجل الدخول الآن للوصول إلى الدروس الكاملة والموارد الحصرية"
+          />
         </div>
       </section>
       

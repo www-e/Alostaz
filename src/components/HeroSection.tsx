@@ -47,8 +47,15 @@ const HeroSection = () => {
                   <span>حجز الترم الثاني</span>
                 </Link>
                 <Link 
-                  href="#contact" 
+                  href="/public/login" 
                   className="bg-gradient-to-r from-secondary to-secondary-dark text-white px-6 py-3 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-secondary/30 hover:translate-y-[-2px] flex items-center gap-2 group"
+                >
+                  <span className="group-hover:scale-110 transition-transform duration-300">🔑</span>
+                  <span>تسجيل الدخول</span>
+                </Link>
+                <Link 
+                  href="#contact" 
+                  className="bg-gradient-to-r from-accent to-accent-dark text-white px-6 py-3 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-accent/30 hover:translate-y-[-2px] flex items-center gap-2 group"
                 >
                   <span className="group-hover:scale-110 transition-transform duration-300">📞</span>
                   <span>تواصل معي</span>

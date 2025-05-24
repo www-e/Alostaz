@@ -31,7 +31,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "src/hooks/useAuth.tsx"  ],
   "exclude": [
     "node_modules"
   ]

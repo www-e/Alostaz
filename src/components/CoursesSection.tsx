@@ -80,8 +80,21 @@ const CoursesSection = () => {
   ];
 
   return (
-    <section id="courses" className="py-20 bg-gradient-to-br from-[var(--bg-primary)] to-[var(--bg-secondary)] dark:from-[var(--bg-primary)] dark:to-[var(--bg-secondary)] relative overflow-hidden">
-      {/* Decorative animated elements */}
+    <section id="courses" className="py-16 md:py-20 relative overflow-hidden">
+      {/* Sign in CTA */}
+      <div className="container mx-auto px-4 mb-12 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-6">هل أنت طالب مسجل بالفعل؟</h2>
+        <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 max-w-2xl mx-auto">سجل الدخول الآن للوصول إلى المحتوى الكامل والدروس الخاصة بك</p>
+        <Link 
+          href="/login" 
+          className="inline-flex items-center justify-center px-8 py-3 rounded-xl bg-gradient-to-r from-primary to-secondary text-white font-medium hover:opacity-90 transition-opacity duration-300 shadow-md hover:shadow-lg"
+        >
+          <span className="ml-2">🔑</span>
+          <span>تسجيل الدخول</span>
+        </Link>
+      </div>
+      
+      {/* Decorative background elements */}
       {decorativeElements.map((elem, index) => (
         <div 
           key={index}
